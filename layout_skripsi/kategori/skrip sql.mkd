@@ -1,0 +1,8 @@
+#SQL JOIN event creator with user
+select event_creator.id_event_creator, event_creator.id_user, user.username, event_creator.nama_eo,event_creator.alamat,event_creator.no_telp, event_creator.email
+from event_creator left join user
+on event_creator.id_user=user.id_user
+
+SELECT event_creator.id_event_creator, event_creator.id_user, user.username, user.password, event_creator.nama_eo,event_creator.alamat,event_creator.no_telp, event_creator.email
+FROM event_creator LEFT JOIN user
+ON event_creator.id_user=user.id_user

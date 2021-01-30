@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cara Membuat Inputan Validasi Email dengan JavaScript</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<script type="text/javascript">
+    function validasiemail(){
+        var x=document.forms["cekemail"]["email"].value;
+        var password1 = document.getElementById('password').value;
+        var password2 = document.getElementById('repassword').value;
+        var atpos=x.indexOf("@");
+        var dotpos=x.lastIndexOf(".");
+        if (x == "" || password1 =="" || password2 == "") {
+            alert("Isi inputan email, Password dan Repassword anda");
+        } else {
+            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+            {
+                alert("Isi Email dengan Benar");
+            }
+            else if (password1 != password2){
+                alert("inputan password dan repassword anda tidak sama");
+            }
+            else {
+                alert ("email dan password anda valid")               
+            }
+        }
+                
+    }
+   </script>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #b2ede0;">
+        <div class="container-fluid" style="font-weight: bold; ;">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#" style="font-weight: bold;">Logo</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+<div class="container">
+    <h1>Silahkan Daftar Terlebih Dahulu</h1>
+    <form onsubmit="validasiemail();" name="cekemail">
+        <div class="form-group">
+            EMAIL <br/>
+            <input type="text" class="form-control" name="email" placeholder="Masukkan email anda"> <br/>
+        </div>
+        <div class="form-group">
+            PASSWORD <br/>
+            <input type="password" class="form-control" placeholder="Masukan password" id="password" /> <br/>
+        </div>
+        <div class="form-group">
+            KETIK ULANG PASSWORD <br/>
+            <input type="password" class="form-control" placeholder="Masukan Kembali password" id="repassword" /><br/>
+        </div>
+            <input type="submit"  class="btn btn-primary" value="DAFTAR" >
+	</form>
+</div>
+
+</body>
+</html>
