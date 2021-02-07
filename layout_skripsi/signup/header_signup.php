@@ -164,6 +164,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         var dotpos=x.lastIndexOf(".");
         if (x == "" || password1 =="" || password2 == "") {
             alert("Isi inputan email, Password dan Repassword anda");
+            window.location = "signup_event_creator.php";
         } else {
             if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
             {

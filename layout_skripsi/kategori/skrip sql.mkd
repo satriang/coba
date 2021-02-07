@@ -6,3 +6,15 @@ on event_creator.id_user=user.id_user
 SELECT event_creator.id_event_creator, event_creator.id_user, user.username, user.password, event_creator.nama_eo,event_creator.alamat,event_creator.no_telp, event_creator.email
 FROM event_creator LEFT JOIN user
 ON event_creator.id_user=user.id_user
+
+
+# SQL EVENT SELECT
+SELECT event.id_event, event.nama_event, event_creator.id_event_creator, event_creator.nama_eo, kategori_event.id_kategori_event, kategori_event.kategori_event, event.tanggal, event.proposal, event.lokasi_event, event.status_terdanai, event.tanggal_terlaksana, event.status_terlaksana
+FROM event
+JOIN event_creator ON event.id_event_creator = event_creator.id_event_creator
+JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event
+
+SELECT event.id_event, event.nama_event, event_creator.id_event_creator, event_creator.nama_eo, kategori_event.id_kategori_event, kategori_event.kategori_event, DATE_FORMAT(event.tanggal, '%d %M %Y') as tanggal_acara, event.proposal, event.lokasi_event, event.status_terdanai, DATE_FORMAT(event.tanggal_terlaksana, '%d %M %Y') as tanggal_berakhir, event.status_terlaksana
+FROM event
+JOIN event_creator ON event.id_event_creator = event_creator.id_event_creator
+JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event
