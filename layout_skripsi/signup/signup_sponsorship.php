@@ -34,7 +34,8 @@ include_once('header_signup.php');
           KETIK ULANG PASSWORD <br/>
           <input type="password" class="form-control" placeholder="Masukan Kembali password" id="repassword" /><br/>
       </div>
-          <input type="submit"  class="btn btn-primary" value="DAFTAR" >
+        <input type="reset"  class="btn btn-danger"   value="Batal" >
+        <input type="submit"  class="btn btn-success" style="float: right;" value="Daftar" >
 </form>
 </div>
 

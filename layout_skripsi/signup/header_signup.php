@@ -184,6 +184,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
         <div class="jumbotron">
                 <div class="container text-center">
+                  <br/>
                   <h1>Sponsorship Event</h1>
                   <p>Suggest your event proposal for sponsorship</p>
                 </div>
@@ -197,7 +198,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#" style="font-weight: bold;">Logo</a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="#" style="text-align: center;"><img src="se1.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       

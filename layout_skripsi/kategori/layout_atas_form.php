@@ -168,11 +168,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#" style="font-weight: bold;">Logo</a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="read_kategori.php"><img src="se1.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="read_kategori.php">Home</a></li>
         <li><a href="read_event_creator.php">Event Creator</a></li>
         <li><a href="read_event.php">Event</a></li>
         <li><a href="read_sponsorship.php">Sponsorship</a></li>

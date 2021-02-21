@@ -18,3 +18,10 @@ SELECT event.id_event, event.nama_event, event_creator.id_event_creator, event_c
 FROM event
 JOIN event_creator ON event.id_event_creator = event_creator.id_event_creator
 JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event
+
+# SQL SPONSORSHIP
+
+SELECT sponsorship.id_sponsorship, user.id_user, user.username, sponsorship.nama_sponsorship, sponsorship.alamat, sponsorship.email, 
+sponsorship.no_telp, sponsorship.dana_maksimal, sponsorship.deskripsi_sponsorship
+FROM sponsorship LEFT JOIN user
+ON sponsorship.id_user = user.id_user
