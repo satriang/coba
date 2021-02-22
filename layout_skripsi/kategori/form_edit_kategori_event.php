@@ -15,7 +15,7 @@ $hasil = mysqli_fetch_assoc($ekseskusi_id);
   	<div style="overflow-x:auto;">
 		<h1 style="text-align: center;">Tambahkan Kategori Event</h1>
 			<table border="0">
-				<form action="update_proses_kategori.php" method="post">
+				<form action="update_proses_kategori_event.php" method="post">
 					<tr>
 						<td style="font-weight: bold;">ID KATEGORI EVENT</td>
 						<td><input type="text" class="form-control" value="<?php echo $hasil['id_kategori_event'] ?>" name="id_kategori_event" readonly="readonly"/> </td>

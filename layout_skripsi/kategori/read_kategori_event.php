@@ -45,8 +45,8 @@ $eksekusi = mysqli_query($conn, $sql);
                             <td><?php echo $row['kategori_event'] ?></td>
                             <td>
                                 <a href="form_edit_kategori_event.php?id_kategori_event=<?php echo $row['id_kategori_event'] ?>" class="w3-button w3-border w3-small w3-blue"> Edit </a>
-                                <a href="hapus_kategori.php?id_kategori_event=<?php echo $row['id_kategori_event'] ?>"  class="w3-button w3-border w3-small w3-red"> Hapus </a>
-                                <a href="detail_kategori.php?id_kategori_event=<?php echo $row['id_kategori_event'] ?>"  class="w3-button w3-border w3-small w3-deep-purple"> Lihat Detail </a>
+                                <a href="hapus_kategori_event.php?id_kategori_event=<?php echo $row['id_kategori_event'] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="w3-button w3-border w3-small w3-red"> Hapus </a>
+                                <a href="detail_kategori_event.php?id_kategori_event=<?php echo $row['id_kategori_event'] ?>"  class="w3-button w3-border w3-small w3-deep-purple"> Lihat Detail </a>
                             </td>
                             
                        </tr>

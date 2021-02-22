@@ -72,7 +72,7 @@ $eksekusi = mysqli_query($conn, $sql);
                 <a href="form_edit_event.php?id_event=<?php echo $row['id_event'] ?>" class="w3-button w3-border w3-small w3-blue"> Edit </a> 
               </td>
               <td>
-                <a href="hapus_event.php?id_event=<?php echo $row['id_event'] ?>"  class="w3-button w3-border w3-small w3-red"> Hapus </a>
+                <a href="hapus_event.php?id_event=<?php echo $row['id_event'] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="w3-button w3-border w3-small w3-red"> Hapus </a>
               </td>  
               <td>
                 <a href="detail_event.php?id_event=<?php echo $row['id_event'] ?>"  class="w3-button w3-border w3-small w3-deep-purple"> Lihat Detail </a>

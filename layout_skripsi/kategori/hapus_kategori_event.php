@@ -14,6 +14,6 @@ if($ekseskusi_id){
 }else{
 	echo "Data Gagal Di Hapus : ". $sql . "<br>" . mysqli_error($koneksi);
 }
-header("Location: read_kategori.php") ;
+header("Location: read_kategori_event.php") ;
 
 ?>

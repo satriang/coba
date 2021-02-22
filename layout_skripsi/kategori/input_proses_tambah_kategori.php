@@ -16,7 +16,7 @@ if($eksekusi){
 }else{
 	echo "Data Gagal Disimpan : ". $sql . "<br>" . mysqli_error($koneksi);
 }
-header("Location: read_kategori.php") ;
+header("Location: read_kategori_event.php") ;
 ?>
 
 ?>

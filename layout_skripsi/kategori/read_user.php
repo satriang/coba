@@ -20,7 +20,7 @@ $eksekusi = mysqli_query($conn, $sql);
 ?>
   <div class="col-2 col-s-3 menu " style="text-align:center; font-weight: bold;">
     <ul>
-      <li><a href="form_tambah_user.php">Tambah Kategori Event</a></li>
+      <li><a href="form_tambah_user.php">Tambah User</a></li>
       <li><a href="form_cari_user.php">Cari</a></li>
     </ul>
   </div>
@@ -47,8 +47,8 @@ $eksekusi = mysqli_query($conn, $sql);
                             <td><?php echo $row['password'] ?></td>
                             <td><?php echo $row['level'] ?></td>
                             <td>
-                                <a href="form_edit_user.php?id_user=<?php echo $row['id_user'] ?>" class="w3-button w3-border w3-small w3-blue"> Edit </a>
-                                <a href="hapus_user.php?id_user=<?php echo $row['id_user'] ?>"  class="w3-button w3-border w3-small w3-red"> Hapus </a>
+                                <a href="form_edit_user.php?id_user=<?php echo $row['id_user'] ?>"  class="w3-button w3-border w3-small w3-blue"> Edit </a>
+                                <a href="hapus_user.php?id_user=<?php echo $row['id_user'] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="w3-button w3-border w3-small w3-red"> Hapus </a>
                             </td>
                             
                        </tr>

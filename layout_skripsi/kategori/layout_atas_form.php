@@ -176,7 +176,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <li><a href="read_event.php">Event</a></li>
         <li><a href="read_sponsorship.php">Sponsorship</a></li>
         <li><a href="read_user.php">User</a></li>
-        <li><a href="read_kategori.php">Kategori Event</a></li>
+        <li><a href="read_kategori_event.php">Kategori Event</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

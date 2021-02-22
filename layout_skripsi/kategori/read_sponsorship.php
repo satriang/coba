@@ -24,7 +24,7 @@ $eksekusi = mysqli_query($conn, $sql);
 ?>
   <div class="col-2 col-s-3 menu " style="text-align:center; font-weight: bold;">
     <ul>
-      <li><a href="form_tambah_event_creator.php">Tambah Event Creator</a></li>
+      <li><a href="form_tambah_event_creator.php">Tambah Sponsorship</a></li>
       <li><a href="form_tambah_event_creator.php">Cari</a></li>
     </ul>
   </div>
@@ -64,7 +64,7 @@ $eksekusi = mysqli_query($conn, $sql);
                 <a href="form_edit_sponsorship.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>" class="w3-button w3-border w3-small w3-blue"> Edit </a> 
               </td>
               <td>
-                <a href="hapus_sponsorship.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>"  class="w3-button w3-border w3-small w3-red"> Hapus </a>
+                <a href="hapus_sponsorship.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="w3-button w3-border w3-small w3-red"> Hapus </a>
               </td>
               <td>
                 <a href="detail_sponsorship.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>"  class="w3-button w3-border w3-small w3-deep-purple"> Lihat Detail </a>
