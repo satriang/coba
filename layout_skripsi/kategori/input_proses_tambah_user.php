@@ -14,11 +14,16 @@ $sql = "INSERT INTO `user`(`id_user`, `username`, `password`, `level`) VALUES ('
 $eksekusi = mysqli_query($conn,$sql);
 
 if($eksekusi){
-	echo "Data berhasil disimpan";
+	echo ' <script type="text/javascript">
+	alert("Data Berhasil Di Simpan");
+	window.location.replace("read_user.php") </script>';
+//	header("Location: read_user.php") ;
 }else{
-	echo "Data Gagal Disimpan : ". $sql . "<br>" . mysqli_error($koneksi);
+	echo ' <script type="text/javascript">
+	alert("Data Gagal Disimpan\nNo Error : '. mysqli_errno($conn). '\nPesan Error : '.mysqli_error($conn).'");
+	window.location.replace("read_user.php") </script>';
 }
-header("Location: read_user.php") ;
-?>
+
+
 
 ?>

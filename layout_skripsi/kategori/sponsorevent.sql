@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 22 Jan 2021 pada 05.15
+-- Generation Time: 26 Feb 2021 pada 03.17
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `event` (
-  `id_event` int(3) NOT NULL,
-  `id_eventcreator` int(3) NOT NULL,
-  `id_kategori_event` int(3) NOT NULL,
+  `id_event` varchar(6) NOT NULL,
+  `id_event_creator` varchar(6) NOT NULL,
+  `id_kategori_event` varchar(6) NOT NULL,
   `nama_event` varchar(40) NOT NULL,
   `tanggal` date NOT NULL,
   `proposal` varchar(30) NOT NULL,
@@ -45,9 +45,9 @@ CREATE TABLE `event` (
 -- Dumping data untuk tabel `event`
 --
 
-INSERT INTO `event` (`id_event`, `id_eventcreator`, `id_kategori_event`, `nama_event`, `tanggal`, `proposal`, `lokasi_event`, `status_terdanai`, `tanggal_terlaksana`, `status_terlaksana`) VALUES
-(1, 1, 1, 'Sounderlina', '2020-11-18', 'ada', 'jl ng satria utomo no 9, nganjuk', 'belum terdanai', '2020-11-18', 'belum terlaksana'),
-(2, 1, 2, 'Drifting', '2020-11-03', 'ada', 'lapangan sultan ng satria nganjuk', 'belum terdanai', '2020-11-03', 'belum terlaksana');
+INSERT INTO `event` (`id_event`, `id_event_creator`, `id_kategori_event`, `nama_event`, `tanggal`, `proposal`, `lokasi_event`, `status_terdanai`, `tanggal_terlaksana`, `status_terlaksana`) VALUES
+('EVT001', 'ECT001', 'KTE001', 'Sounderlina', '2020-11-18', 'ada', 'jl ng satria utomo no 9, nganjuk', 'belum terdanai', '2020-11-18', 'belum terlaksana'),
+('EVT002', 'ECT001', 'KTE002', 'Drifting', '2020-11-03', 'ada', 'lapangan sultan ng satria nganjuk', 'belum terdanai', '2020-11-03', 'belum terlaksana');
 
 -- --------------------------------------------------------
 
@@ -56,8 +56,8 @@ INSERT INTO `event` (`id_event`, `id_eventcreator`, `id_kategori_event`, `nama_e
 --
 
 CREATE TABLE `event_creator` (
-  `id_event_creator` int(3) NOT NULL,
-  `id_user` int(3) NOT NULL,
+  `id_event_creator` varchar(6) NOT NULL,
+  `id_user` varchar(6) NOT NULL,
   `nama_eo` varchar(20) NOT NULL,
   `alamat` varchar(40) NOT NULL,
   `no_telp` varchar(12) NOT NULL,
@@ -69,9 +69,9 @@ CREATE TABLE `event_creator` (
 --
 
 INSERT INTO `event_creator` (`id_event_creator`, `id_user`, `nama_eo`, `alamat`, `no_telp`, `email`) VALUES
-(1, 1, 'satria eo', 'nganjuk', '085799414352', 'ngsatria@gmail.com'),
-(2, 2, 'Ngestu eo', 'Jogja', '023408790567', 'satsat@satria.com'),
-(3, 3, 'tiok eo', 'solo', '076556788976', 'tiok@tiok.com');
+('ECT001', 'USR001', 'satria eo', 'nganjuk', '085799414352', 'ngsatria@gmail.com'),
+('ECT002', 'USR002', 'Ngestu eo', 'Jogja', '023408790567', 'satsat@satria.com'),
+('ECT003', 'USR003', 'tiok eo', 'solo', '076556788976', 'tiok@tiok.com');
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,7 @@ INSERT INTO `event_creator` (`id_event_creator`, `id_user`, `nama_eo`, `alamat`,
 --
 
 CREATE TABLE `kategori_event` (
-  `id_kategori_event` int(3) NOT NULL,
+  `id_kategori_event` varchar(6) NOT NULL,
   `kategori_event` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -89,12 +89,12 @@ CREATE TABLE `kategori_event` (
 --
 
 INSERT INTO `kategori_event` (`id_kategori_event`, `kategori_event`) VALUES
-(1, 'Musik'),
-(2, 'Otomotif'),
-(3, 'Lomba'),
-(4, 'Pameran'),
-(5, 'Sport'),
-(6, 'Pendidikan');
+('KTE001', 'Musik'),
+('KTE002', 'Otomotif'),
+('KTE003', 'Lomba'),
+('KTE004', 'Pameran'),
+('KTE005', 'Sport'),
+('KTE006', 'Pendidikan');
 
 -- --------------------------------------------------------
 
@@ -103,8 +103,8 @@ INSERT INTO `kategori_event` (`id_kategori_event`, `kategori_event`) VALUES
 --
 
 CREATE TABLE `sponsorship` (
-  `id_sponsorship` int(3) NOT NULL,
-  `id_user` int(3) NOT NULL,
+  `id_sponsorship` varchar(6) NOT NULL,
+  `id_user` varchar(6) NOT NULL,
   `nama_sponsorship` varchar(30) NOT NULL,
   `alamat` text NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -113,6 +113,15 @@ CREATE TABLE `sponsorship` (
   `deskripsi_sponsorship` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `sponsorship`
+--
+
+INSERT INTO `sponsorship` (`id_sponsorship`, `id_user`, `nama_sponsorship`, `alamat`, `email`, `no_telp`, `dana_maksimal`, `deskripsi_sponsorship`) VALUES
+('SPR001', 'USR004', 'Putra Corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', 'putra@gmail.com', '076556788976', 5000000, 'produk kesehatan'),
+('SPR002', 'USR005', 'Tiok corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', 'tiok@gmail.com', '023408790567', 7000000, 'produk otomotif'),
+('SPR003', 'USR006', 'Santi Corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', 'santi@gmail.com', '085799414352', 10000000, 'produk minuman');
+
 -- --------------------------------------------------------
 
 --
@@ -120,7 +129,7 @@ CREATE TABLE `sponsorship` (
 --
 
 CREATE TABLE `user` (
-  `id_user` int(3) NOT NULL,
+  `id_user` varchar(6) NOT NULL,
   `username` char(30) NOT NULL,
   `password` char(20) NOT NULL,
   `level` char(30) NOT NULL
@@ -131,12 +140,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`) VALUES
-(1, 'satria', 'satria123', 'event_creator'),
-(2, 'wahyu', 'satria123', 'event_creator'),
-(3, 'ngestu', 'satria123', 'event_creator'),
-(4, 'putra', 'satria123', 'sponsorship'),
-(5, 'tiok', 'satria123', 'sponsorship'),
-(6, 'santi', 'satria123', 'sponsorship');
+('USR001', 'satria', 'satria567', 'event_creator'),
+('USR002', 'wahyu', 'satria123', 'event_creator'),
+('USR003', 'ngestu', 'satria123', 'event_creator'),
+('USR004', 'putra', 'satria123', 'sponsorship'),
+('USR005', 'tiok', 'satria123', 'sponsorship'),
+('USR006', 'paksatriang', 'ntiok123', 'event_creator'),
+('USR007', 'utomo', 'satria123', 'sponsorship');
 
 --
 -- Indexes for dumped tables
@@ -147,7 +157,7 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `level`) VALUES
 --
 ALTER TABLE `event`
   ADD PRIMARY KEY (`id_event`),
-  ADD KEY `id_eventcreator` (`id_eventcreator`),
+  ADD KEY `id_eventcreator` (`id_event_creator`),
   ADD KEY `id_kategori_event` (`id_kategori_event`);
 
 --
@@ -175,29 +185,6 @@ ALTER TABLE `sponsorship`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `event`
---
-ALTER TABLE `event`
-  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`id_eventcreator`) REFERENCES `event_creator` (`id_event_creator`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `event_ibfk_2` FOREIGN KEY (`id_kategori_event`) REFERENCES `kategori_event` (`id_kategori_event`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `event_creator`
---
-ALTER TABLE `event_creator`
-  ADD CONSTRAINT `event_creator_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `sponsorship`
---
-ALTER TABLE `sponsorship`
-  ADD CONSTRAINT `sponsorship_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
