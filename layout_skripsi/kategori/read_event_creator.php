@@ -13,7 +13,7 @@ $halaman = @$_GET['halaman'];
 	  $posisi  = ($halaman-1) * $batas; 
 	}
 
-$sql = "SELECT event_creator.id_event_creator, event_creator.id_user, user.username, user.password, event_creator.nama_eo,event_creator.alamat,event_creator.no_telp, event_creator.email
+$sql = "SELECT event_creator.id_event_creator, event_creator.id_user, user.email, user.password, event_creator.nama_eo,event_creator.alamat,event_creator.no_telp
 FROM event_creator LEFT JOIN user
 ON event_creator.id_user=user.id_user LIMIT $posisi,$batas";
 
@@ -35,12 +35,11 @@ $eksekusi = mysqli_query($conn, $sql);
             <th class="w3-center">NO</th>
               <th class="w3-center">ID_EVENT_CREATOR</th>
               <th class="w3-center">ID_USER</th>
-              <th class="w3-center">USERNAME</th>
+              <th class="w3-center">EMAIL</th>
               <th class="w3-center">PASSWORD</th>
               <th class="w3-center">NAMA_EO</th>
               <th class="w3-center">ALAMAT</th>
               <th class="w3-center">NO_TELP</th>
-              <th class="w3-center">EMAIL</th>
               <th colspan="3" class="w3-center">ACTION</th>
             </tr>
 
@@ -53,12 +52,11 @@ $eksekusi = mysqli_query($conn, $sql);
             <td><?php echo $no ?></td>         
               <td><?php echo $row['id_event_creator'] ?></td>
               <td><?php echo $row['id_user'] ?></td>
-              <td><?php echo $row['username'] ?></td>
+              <td><?php echo $row['email'] ?></td>
               <td><?php echo $row['password'] ?></td>
               <td><?php echo $row['nama_eo'] ?></td>
               <td><?php echo $row['alamat'] ?></td>
               <td><?php echo $row['no_telp'] ?></td>
-              <td><?php echo $row['email'] ?></td>
               <td>
                 <a href="form_edit_event_creator.php?id_event_creator=<?php echo $row['id_event_creator'] ?>" class="w3-button w3-border w3-small w3-blue"> Edit </a> 
               </td>
@@ -80,7 +78,7 @@ $eksekusi = mysqli_query($conn, $sql);
       </div>
       <?php
         // Langkah 3: Hitung total data dan halaman serta link 1,2,3 
-                                $sql2 = "SELECT event_creator.id_event_creator, event_creator.id_user, user.username, user.password, event_creator.nama_eo,event_creator.alamat,event_creator.no_telp, event_creator.email
+                                $sql2 = "SELECT event_creator.id_event_creator, event_creator.id_user, user.email, user.password, event_creator.nama_eo,event_creator.alamat,event_creator.no_telp
                                 FROM event_creator LEFT JOIN user
                                 ON event_creator.id_user=user.id_user ";
                                 $eksekusi2 = mysqli_query($conn, $sql2);

@@ -203,8 +203,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     <div class="collapse navbar-collapse" id="myNavbar">
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signup_sponsorship.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="../login/login_event_creator.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <!--
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      -->
       </ul>
     </div>
   </div>
@@ -214,8 +216,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <div class="row" style="margin-top:1em; margin-bottom:10em;">
   <div class="col-2 col-s-3 menu " style="text-align:center; font-weight: bold;">
     <ul>
-      <li><a href="signup_sponsorship.php" style="color:#000000; font-weight: bold;">SPONSORSHIP</a></li>
-      <li><a href="signup_event_creator.php" style="color:#000000; font-weight: bold;">EVENT CREATOR</a></li>
+      <li><a href="login_sponsorship.php" style="color:#000000; font-weight: bold;">SPONSORSHIP</a></li>
+      <li><a href="login_event_creator.php">EVENT CREATOR</a></li>
     </ul>
   </div>
 

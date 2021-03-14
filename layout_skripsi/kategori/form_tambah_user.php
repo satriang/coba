@@ -13,8 +13,8 @@ include_once('layout_atas_form.php');
 						<td><input type="text" class="form-control" name="id_user" /> </td>
 					</tr>
 					<tr>
-						<td style="font-weight: bold;">USERNAME</td>
-						<td><input type="text" class="form-control" name="username" /> </td>
+						<td style="font-weight: bold;">EMAIL</td>
+						<td><input type="text" class="form-control" name="email" /> </td>
 					</tr>
                     <tr>
 						<td style="font-weight: bold;">PASSWORD</td>

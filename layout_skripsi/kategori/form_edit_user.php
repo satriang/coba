@@ -21,8 +21,8 @@ $hasil = mysqli_fetch_assoc($ekseskusi_id);
 						<td><input type="text" class="form-control" value="<?php echo $hasil['id_user'] ?>" name="id_user" /> </td>
 					</tr>
 					<tr>
-						<td style="font-weight: bold;">USERNAME</td>
-						<td><input type="text" class="form-control" value="<?php echo $hasil['username'] ?>" name="username" /> </td>
+						<td style="font-weight: bold;">EMAIL</td>
+						<td><input type="text" class="form-control" value="<?php echo $hasil['email'] ?>" name="username" /> </td>
 					</tr>
                     <tr>
 						<td style="font-weight: bold;">PASSWORD</td>

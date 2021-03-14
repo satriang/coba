@@ -29,12 +29,13 @@ $eksekusi = mysqli_query($conn, $sql);
             <div class="table-responsive">  
                     <table class="w3-table-all w3-large w3-hoverable">
                             <tbody>
-                        <tr>
+                        <tr> 
                           <th>NO</th>
                           <th>ID</th>
-                          <th>USERNAME</th>
+                          <th>EMAIL</th>
                           <th>PASSWORD</th>
                           <th>LEVEL</th>
+                          <th colspan="2">ACTION</th>
                         </tr>
                       <?php
                             $no = $posisi+1;
@@ -43,7 +44,7 @@ $eksekusi = mysqli_query($conn, $sql);
                        <tr>
                             <td><?php echo $no?></td>
                             <td><?php echo $row['id_user'] ?></td>
-                            <td><?php echo $row['username'] ?></td>
+                            <td><?php echo $row['email'] ?></td>
                             <td><?php echo $row['password'] ?></td>
                             <td><?php echo $row['level'] ?></td>
                             <td>

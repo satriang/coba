@@ -3,7 +3,7 @@
 include_once('header_signup.php');
 
 ?>
-<div class="col-7 col-s-12">
+<div class="col-5 col-s-12">
   <h1>Silahkan Daftar Terlebih Dahulu</h1>
   <form onsubmit="validasiemail();" name="cekemail">
   	<div class="form-group">

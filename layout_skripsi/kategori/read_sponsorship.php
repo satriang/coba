@@ -13,8 +13,8 @@ $halaman = @$_GET['halaman'];
 	  $posisi  = ($halaman-1) * $batas; 
 	}
 
-$sql = "SELECT sponsorship.id_sponsorship, user.id_user, user.username, 
-        sponsorship.nama_sponsorship, sponsorship.alamat, sponsorship.email, 
+$sql = "SELECT sponsorship.id_sponsorship, user.id_user, user.email, 
+        sponsorship.nama_sponsorship, sponsorship.alamat, 
         sponsorship.no_telp, sponsorship.dana_maksimal, sponsorship.deskripsi_sponsorship
         FROM sponsorship LEFT JOIN user
         ON sponsorship.id_user = user.id_user LIMIT $posisi,$batas";
@@ -37,10 +37,9 @@ $eksekusi = mysqli_query($conn, $sql);
             <th class="w3-center">NO</th>
               <th class="w3-center">ID_SPONSORSHIP</th>
               <th class="w3-center">ID_USER</th>
-              <th class="w3-center">USERNAME</th>
+              <th class="w3-center">EMAIL</th>
               <th class="w3-center">NAMA_SPONSORSHIP</th>
               <th class="w3-center">ALAMAT</th>
-              <th class="w3-center">EMAIL</th>
               <th class="w3-center">NO_TELP</th>
               <th colspan="3" class="w3-center">ACTION</th>
             </tr>
@@ -54,10 +53,9 @@ $eksekusi = mysqli_query($conn, $sql);
             <td><?php echo $no ?></td>         
               <td><?php echo $row['id_sponsorship'] ?></td>
               <td><?php echo $row['id_user'] ?></td>
-              <td><?php echo $row['username'] ?></td>
+              <td><?php echo $row['email'] ?></td>
               <td><?php echo $row['nama_sponsorship'] ?></td>
               <td><?php echo $row['alamat'] ?></td>
-              <td><?php echo $row['email'] ?></td>
               <td><?php echo $row['no_telp'] ?></td>
 
               <td>
@@ -81,7 +79,7 @@ $eksekusi = mysqli_query($conn, $sql);
       </div>
       <?php
         // Langkah 3: Hitung total data dan halaman serta link 1,2,3 
-                                $sql2 = "SELECT sponsorship.id_sponsorship, user.id_user, user.username, sponsorship.nama_sponsorship, sponsorship.alamat, sponsorship.email, 
+                                $sql2 = "SELECT sponsorship.id_sponsorship, user.id_user, user.email, sponsorship.nama_sponsorship, sponsorship.alamat, 
                                 sponsorship.no_telp, sponsorship.dana_maksimal, sponsorship.deskripsi_sponsorship
                                 FROM sponsorship LEFT JOIN user
                                 ON sponsorship.id_user = user.id_user ";

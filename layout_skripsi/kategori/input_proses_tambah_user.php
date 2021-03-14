@@ -3,12 +3,12 @@
 include("koneksi.php");
 
 $id_user = $_POST['id_user'];
-$username = $_POST['username'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 $level = $_POST['level'];
 
 
-$sql = "INSERT INTO `user`(`id_user`, `username`, `password`, `level`) VALUES ('{$id_user}','{$username}','{$password}','{$level}')" ;
+$sql = "INSERT INTO `user`(`id_user`, `email`, `password`, `level`) VALUES ('{$id_user}','{$email}','{$password}','{$level}')" ;
 //echo "$sql";
 
 $eksekusi = mysqli_query($conn,$sql);
