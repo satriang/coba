@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 26 Feb 2021 pada 03.17
+-- Generation Time: 15 Mar 2021 pada 05.50
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -60,18 +60,17 @@ CREATE TABLE `event_creator` (
   `id_user` varchar(6) NOT NULL,
   `nama_eo` varchar(20) NOT NULL,
   `alamat` varchar(40) NOT NULL,
-  `no_telp` varchar(12) NOT NULL,
-  `email` varchar(30) NOT NULL
+  `no_telp` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `event_creator`
 --
 
-INSERT INTO `event_creator` (`id_event_creator`, `id_user`, `nama_eo`, `alamat`, `no_telp`, `email`) VALUES
-('ECT001', 'USR001', 'satria eo', 'nganjuk', '085799414352', 'ngsatria@gmail.com'),
-('ECT002', 'USR002', 'Ngestu eo', 'Jogja', '023408790567', 'satsat@satria.com'),
-('ECT003', 'USR003', 'tiok eo', 'solo', '076556788976', 'tiok@tiok.com');
+INSERT INTO `event_creator` (`id_event_creator`, `id_user`, `nama_eo`, `alamat`, `no_telp`) VALUES
+('ECT001', 'USR001', 'satria eo', 'nganjuk', '085799414352'),
+('ECT002', 'USR002', 'Ngestu eo', 'Jogja', '023408790567'),
+('ECT003', 'USR003', 'tiok eo', 'solo', '076556788976');
 
 -- --------------------------------------------------------
 
@@ -107,7 +106,6 @@ CREATE TABLE `sponsorship` (
   `id_user` varchar(6) NOT NULL,
   `nama_sponsorship` varchar(30) NOT NULL,
   `alamat` text NOT NULL,
-  `email` varchar(30) NOT NULL,
   `no_telp` varchar(12) NOT NULL,
   `dana_maksimal` int(20) NOT NULL,
   `deskripsi_sponsorship` text NOT NULL
@@ -117,10 +115,10 @@ CREATE TABLE `sponsorship` (
 -- Dumping data untuk tabel `sponsorship`
 --
 
-INSERT INTO `sponsorship` (`id_sponsorship`, `id_user`, `nama_sponsorship`, `alamat`, `email`, `no_telp`, `dana_maksimal`, `deskripsi_sponsorship`) VALUES
-('SPR001', 'USR004', 'Putra Corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', 'putra@gmail.com', '076556788976', 5000000, 'produk kesehatan'),
-('SPR002', 'USR005', 'Tiok corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', 'tiok@gmail.com', '023408790567', 7000000, 'produk otomotif'),
-('SPR003', 'USR006', 'Santi Corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', 'santi@gmail.com', '085799414352', 10000000, 'produk minuman');
+INSERT INTO `sponsorship` (`id_sponsorship`, `id_user`, `nama_sponsorship`, `alamat`, `no_telp`, `dana_maksimal`, `deskripsi_sponsorship`) VALUES
+('SPR001', 'USR004', 'Putra Corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', '076556788976', 5000000, 'produk kesehatan'),
+('SPR002', 'USR005', 'Tiok corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', '023408790567', 7000000, 'produk otomotif'),
+('SPR003', 'USR006', 'Santi Corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', '085799414352', 10000000, 'produk minuman');
 
 -- --------------------------------------------------------
 
@@ -130,7 +128,7 @@ INSERT INTO `sponsorship` (`id_sponsorship`, `id_user`, `nama_sponsorship`, `ala
 
 CREATE TABLE `user` (
   `id_user` varchar(6) NOT NULL,
-  `username` char(30) NOT NULL,
+  `email` char(30) NOT NULL,
   `password` char(20) NOT NULL,
   `level` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -139,14 +137,15 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `level`) VALUES
+INSERT INTO `user` (`id_user`, `email`, `password`, `level`) VALUES
 ('USR001', 'satria', 'satria567', 'event_creator'),
 ('USR002', 'wahyu', 'satria123', 'event_creator'),
 ('USR003', 'ngestu', 'satria123', 'event_creator'),
 ('USR004', 'putra', 'satria123', 'sponsorship'),
 ('USR005', 'tiok', 'satria123', 'sponsorship'),
 ('USR006', 'paksatriang', 'ntiok123', 'event_creator'),
-('USR007', 'utomo', 'satria123', 'sponsorship');
+('USR007', 'ngsatria@satria.com', 'satria', 'event_creator'),
+('USR008', 'ricky', 'ricky', 'event_creator');
 
 --
 -- Indexes for dumped tables
