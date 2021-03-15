@@ -6,6 +6,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 <style>
 * {
   box-sizing: border-box;
@@ -178,6 +180,17 @@ tr:nth-child(even) {background-color: #f2f2f2;}
             }
         }
 
+    }
+    function passwordFunction() {
+      var x = document.getElementById("password");
+      var y = document.getElementById("repassword");
+      if (x.type === "password" && y.type === "password") {
+        x.type = "text";
+        y.type = "text";
+      } else {
+        x.type = "password";
+        y.type = "password";
+      }
     }
    </script>
 <body>
