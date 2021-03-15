@@ -192,6 +192,14 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         y.type = "password";
       }
     }
+    function myFunction() {
+      var x = document.getElementById("dana").value;
+      var reverse = x.toString().split('').reverse().join(''),
+      ribuan = reverse.match(/\d{1,3}/g);
+      ribuan = ribuan.join('.').split('').reverse().join('');
+      document.getElementById("uang").innerHTML = ribuan;
+    }
+
    </script>
 <body>
 

@@ -82,7 +82,7 @@ include_once('koneksi.php');
                 window.location.replace("signup_event_creator.php") </script>';
 		}
         // email 
-            $query_email = mysqli_query($conn, "SELECT COUNT(email) as jumlahEmail FROM user WHERE email = '{$email}'");
+            $query_email = mysqli_query($conn, "SELECT COUNT(email) as jumlahEmail FROM user WHERE email = '{$email}' AND level = 'event_creator'");
             $data_email = mysqli_fetch_array($query_email);
             $jumlah_user = $data_email['jumlahEmail'];
         if ($jumlah_user > 0){

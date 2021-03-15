@@ -24,7 +24,7 @@ $id_sponsorship = $huruf_sponsorship . sprintf("%03s", $urutan_sponsorship);
 ?>
 <div class="col-5 col-s-12">
   <h1>Silahkan Daftar Terlebih Dahulu</h1>
-  <form onsubmit="validasiemail();" name="cekemail">
+  <form action="proses_daftar_sponsorship.php" method="POST">
   <div class="form-group">
           ID USER <br/>
           <input type="text" class="form-control" name="id_user" value="<?php echo $id_user; ?>"> <br/>
@@ -46,6 +46,11 @@ $id_sponsorship = $huruf_sponsorship . sprintf("%03s", $urutan_sponsorship);
           <input type="text" class="form-control" name="no_telp" placeholder="Masukkan nomer telpon anda"> <br/>
       </div>
       <div class="form-group">
+          Dana Maksimal <br/>
+          <input type="text" class="form-control" name="dana" id="dana" onkeyup="myFunction()" placeholder="Masukkan nomer telpon anda"> 
+          <label style="float: right;">Rp <span id="uang"></span></label><br/>
+      </div>
+      <div class="form-group">
           ALAMAT <br/>
           <textarea name="alamat" class="form-control" placeholder="Masukkan alamat anda"></textarea> <br/>
       </div>
@@ -55,11 +60,11 @@ $id_sponsorship = $huruf_sponsorship . sprintf("%03s", $urutan_sponsorship);
       </div>
       <div class="form-group">
           PASSWORD <br/>
-          <input type="password" class="form-control" placeholder="Masukan password" id="password" /> <br/>
+          <input type="password" class="form-control" placeholder="Masukan password" name="password" id="password" /> <br/>
       </div>
       <div class="form-group">
           KETIK ULANG PASSWORD <br/>
-          <input type="password" class="form-control" placeholder="Masukan Kembali password" id="repassword" />
+          <input type="password" class="form-control" placeholder="Masukan Kembali password" name="password_konfirm" id="repassword" />
           <label style="float: right;"><input type="checkbox" onclick="passwordFunction()"> Lihat Password</label><br/>
       </div>
         <input type="reset"  class="btn btn-danger"   value="Batal" >
