@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 15 Mar 2021 pada 05.50
--- Versi Server: 10.1.26-MariaDB
+-- Generation Time: Mar 19, 2021 at 03:42 AM
+-- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `event`
+-- Table structure for table `event`
 --
 
 CREATE TABLE `event` (
@@ -42,7 +42,7 @@ CREATE TABLE `event` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `event`
+-- Dumping data for table `event`
 --
 
 INSERT INTO `event` (`id_event`, `id_event_creator`, `id_kategori_event`, `nama_event`, `tanggal`, `proposal`, `lokasi_event`, `status_terdanai`, `tanggal_terlaksana`, `status_terlaksana`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `event` (`id_event`, `id_event_creator`, `id_kategori_event`, `nama_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `event_creator`
+-- Table structure for table `event_creator`
 --
 
 CREATE TABLE `event_creator` (
@@ -64,18 +64,22 @@ CREATE TABLE `event_creator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `event_creator`
+-- Dumping data for table `event_creator`
 --
 
 INSERT INTO `event_creator` (`id_event_creator`, `id_user`, `nama_eo`, `alamat`, `no_telp`) VALUES
 ('ECT001', 'USR001', 'satria eo', 'nganjuk', '085799414352'),
 ('ECT002', 'USR002', 'Ngestu eo', 'Jogja', '023408790567'),
-('ECT003', 'USR003', 'tiok eo', 'solo', '076556788976');
+('ECT003', 'USR003', 'tiok eo', 'solo', '076556788976'),
+('ECT004', 'USR006', 'paksatriang eo', 'Surabaya', '085799414352'),
+('ECT005', 'USR009', 'Satria WO', 'Malang', '085799414352'),
+('ECT006', 'USR010', 'Putra Ng EO', 'Jogja', '085799414352'),
+('ECT007', 'USR012', 'Wahyu', 'Solo', '085799414352');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_event`
+-- Table structure for table `kategori_event`
 --
 
 CREATE TABLE `kategori_event` (
@@ -84,7 +88,7 @@ CREATE TABLE `kategori_event` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori_event`
+-- Dumping data for table `kategori_event`
 --
 
 INSERT INTO `kategori_event` (`id_kategori_event`, `kategori_event`) VALUES
@@ -98,7 +102,28 @@ INSERT INTO `kategori_event` (`id_kategori_event`, `kategori_event`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sponsorship`
+-- Table structure for table `pengajuan_event`
+--
+
+CREATE TABLE `pengajuan_event` (
+  `id_pengajuan_event` varchar(6) NOT NULL,
+  `id_event` varchar(6) NOT NULL,
+  `id_sponsorship` varchar(6) NOT NULL,
+  `dana_event` int(20) DEFAULT NULL,
+  `status` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengajuan_event`
+--
+
+INSERT INTO `pengajuan_event` (`id_pengajuan_event`, `id_event`, `id_sponsorship`, `dana_event`, `status`) VALUES
+('PJE001', 'EVT001', 'SPR005', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sponsorship`
 --
 
 CREATE TABLE `sponsorship` (
@@ -112,18 +137,20 @@ CREATE TABLE `sponsorship` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `sponsorship`
+-- Dumping data for table `sponsorship`
 --
 
 INSERT INTO `sponsorship` (`id_sponsorship`, `id_user`, `nama_sponsorship`, `alamat`, `no_telp`, `dana_maksimal`, `deskripsi_sponsorship`) VALUES
 ('SPR001', 'USR004', 'Putra Corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', '076556788976', 5000000, 'produk kesehatan'),
 ('SPR002', 'USR005', 'Tiok corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', '023408790567', 7000000, 'produk otomotif'),
-('SPR003', 'USR006', 'Santi Corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', '085799414352', 10000000, 'produk minuman');
+('SPR003', 'USR006', 'Santi Corp', 'Sugihwaras, Kec. Prambon, Kabupaten Nganjuk, Jawa Timur 64484', '085799414352', 10000000, 'produk minuman'),
+('SPR004', 'USR008', 'SASA CORP', 'Jombang', '076556788976', 10000000, 'tentang olah raga '),
+('SPR005', 'USR011', 'Wahyu EO', 'Solo', '085799414352', 2000000, 'Tentang Fashion');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -134,7 +161,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `email`, `password`, `level`) VALUES
@@ -143,9 +170,13 @@ INSERT INTO `user` (`id_user`, `email`, `password`, `level`) VALUES
 ('USR003', 'ngestu', 'satria123', 'event_creator'),
 ('USR004', 'putra', 'satria123', 'sponsorship'),
 ('USR005', 'tiok', 'satria123', 'sponsorship'),
-('USR006', 'paksatriang', 'ntiok123', 'event_creator'),
+('USR006', 'paksatriang', 'ntiok123', 'sponsorship'),
 ('USR007', 'ngsatria@satria.com', 'satria', 'event_creator'),
-('USR008', 'ricky', 'ricky', 'event_creator');
+('USR008', 'ricky', 'ricky', 'sponsorship'),
+('USR009', 'satria@satria.com', 'satria123', 'event_creator'),
+('USR010', 'tiok@satria.com', 'tiok12345', 'event_creator'),
+('USR011', 'wahyu@wahyu.com', 'satria123', 'sponsorship'),
+('USR012', 'wahyu@wahyu.com', 'satria123', 'event_creator');
 
 --
 -- Indexes for dumped tables
@@ -171,6 +202,12 @@ ALTER TABLE `event_creator`
 --
 ALTER TABLE `kategori_event`
   ADD PRIMARY KEY (`id_kategori_event`);
+
+--
+-- Indexes for table `pengajuan_event`
+--
+ALTER TABLE `pengajuan_event`
+  ADD PRIMARY KEY (`id_pengajuan_event`);
 
 --
 -- Indexes for table `sponsorship`

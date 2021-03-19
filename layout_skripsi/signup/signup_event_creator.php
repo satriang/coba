@@ -26,14 +26,8 @@ $id_event_creator = $huruf_event_creator . sprintf("%03s", $urutan_event_creator
   <h1>Silahkan Daftar Sebagai Event Creator</h1>
   <form action="proses_daftar_event_creator.php" method="POST">
       <div class="form-group">
-          ID USER <br/>
-          <input type="text" class="form-control" name="id_user" value="<?php echo $id_user; ?>"> <br/>
-      </div>
-      <div class="form-group">
-          ID EVENT CREATOR <br/>
-          <input type="text" class="form-control" name="id_event_creator" value="<?php echo $id_event_creator; ?>"> <br/>
-      </div>
-      <div class="form-group">
+          <input type="hidden" class="form-control" name="id_user" value="<?php echo $id_user; ?>" >
+          <input type="hidden" class="form-control" name="id_event_creator" value="<?php echo $id_event_creator; ?>">
           NAMA EVENT CREATOR <br/>
           <input type="text" class="form-control" name="nama_eo" placeholder="Masukkan nama EVENT CREATOR anda"> <br/>
       </div>

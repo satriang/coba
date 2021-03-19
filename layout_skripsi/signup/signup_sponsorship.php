@@ -25,15 +25,9 @@ $id_sponsorship = $huruf_sponsorship . sprintf("%03s", $urutan_sponsorship);
 <div class="col-5 col-s-12">
   <h1>Silahkan Daftar Terlebih Dahulu</h1>
   <form action="proses_daftar_sponsorship.php" method="POST">
-  <div class="form-group">
-          ID USER <br/>
-          <input type="text" class="form-control" name="id_user" value="<?php echo $id_user; ?>"> <br/>
-      </div>
-      <div class="form-group">
-          ID SPONSORSHIP <br/>
-          <input type="text" class="form-control" name="id_sponsor" value="<?php echo $id_sponsorship; ?>"> <br/>
-      </div>
-  	<div class="form-group">
+  	 <div class="form-group">
+        <input type="hidden" class="form-control" name="id_user" value="<?php echo $id_user; ?>"> 
+        <input type="hidden" class="form-control" name="id_sponsor" value="<?php echo $id_sponsorship; ?>">
           NAMA SPONSOR <br/>
           <input type="text" class="form-control" name="nama_sponsor" placeholder="Masukkan nama SPONSOR anda"> <br/>
       </div>

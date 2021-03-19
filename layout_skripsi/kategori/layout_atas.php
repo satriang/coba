@@ -3,7 +3,7 @@
 <head>
 <title>Sponsorship Event</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href='se1.png' rel='shortcut icon'> 
+<link href='se1.png' rel='shortcut icon'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -138,17 +138,17 @@ ul li:hover {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
@@ -157,7 +157,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
         <div class="jumbotron">
                 <div class="container text-center">
-                  <h1>Sponsorship Event</h1>      
+                  <h1>Sponsorship Event</h1>
                   <p>Get Sponsors For Your Event</p>
                 </div>
         </div>
@@ -168,7 +168,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="w3-bar-item w3-button w3-theme-l1" href="read_kategori.php"><img src="se1.png"></a>
     </div>
@@ -190,5 +190,3 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <div class="container-fluid"> 
 <div class="row" style="margin-top:1em; margin-bottom:10em;">
-  
-    
