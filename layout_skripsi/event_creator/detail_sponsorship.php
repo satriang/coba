@@ -31,7 +31,7 @@ $row=mysqli_fetch_assoc($eksekusi_id);
                         </tr>
                         <tr>
                             <th>Dana </th>
-                            <td><?php echo $row['dana_maksimal'] ?></td>
+                            <td><?php echo $hasil = 'Rp ' . number_format($row['dana_maksimal'], 2, ",", "."); ?></td>
 
                         </tr>
                           </tbody>

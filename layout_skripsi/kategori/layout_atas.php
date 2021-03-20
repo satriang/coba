@@ -155,8 +155,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 </head>
 <body>
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="margin-top: 1em;">
                 <div class="container text-center">
+                  <br/>
                   <h1>Sponsorship Event</h1>
                   <p>Get Sponsors For Your Event</p>
                 </div>

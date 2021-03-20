@@ -157,6 +157,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
         <div class="jumbotron">
                 <div class="container text-center">
+                  <br/>
                   <h1>Sponsorship Event</h1>      
                   <p>Get Sponsors For Your Event</p>
                 </div>
@@ -181,9 +182,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
             </ul>
         </li>
         <li><a href="read_event.php">Event</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sponsor <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="read_sponsorship.php">Sponsor <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Sponsor Diajukan</a></li>
+              <li><a href="read_sponsorship.php">Cari Sponsor</a></li>
               <li><a href="#">Sponsor Diterima</a></li>
             </ul>
         </li>
