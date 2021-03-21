@@ -1,13 +1,25 @@
+<?php session_start();
+  if(!isset($_SESSION['id_user'])){
+    header("Location: ../login/login_event_creator.php") ;
+  }
+include_once('koneksi.php');
+$id_event_creator = $_SESSION['id_event_creator'];
+$sql_user = "SELECT * FROM `event_creator` WHERE id_event_creator = '{$id_event_creator}'" ;
+
+$eksekusi = mysqli_query($conn, $sql_user);
+$hasil = mysqli_fetch_assoc($eksekusi);
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Sponsorship Event</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='se1.png' rel='shortcut icon'> 
-<<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <style>
 * {
   box-sizing: border-box;
@@ -157,7 +169,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
         <div class="jumbotron">
                 <div class="container text-center">
-                  <br/>
                   <h1>Sponsorship Event</h1>      
                   <p>Get Sponsors For Your Event</p>
                 </div>
@@ -175,14 +186,16 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="read_event_creator.php">Event Creator</a></li>
         <li><a href="read_event.php">Event</a></li>
-        <li><a href="read_sponsorship.php">Sponsorship</a></li>
-        <li><a href="read_user.php">User</a></li>
-        <li><a href="read_kategori_event.php">Kategori Event</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="read_sponsorship.php">Sponsor <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="read_sponsorship.php">Cari Sponsor</a></li>
+              <li><a href="#">Sponsor Diterima</a></li>
+            </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_eo'] ?></a></li>
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>

@@ -1,3 +1,14 @@
+<?php session_start();
+  if(!isset($_SESSION['id_user'])){
+    header("Location: ../login/login_event_creator.php") ;
+  }
+include_once('koneksi.php');
+$id_event_creator = $_SESSION['id_event_creator'];
+$sql_user = "SELECT * FROM `event_creator` WHERE id_event_creator = '{$id_event_creator}'" ;
+
+$eksekusi = mysqli_query($conn, $sql_user);
+$hasil = mysqli_fetch_assoc($eksekusi);
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -175,12 +186,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Profil <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Profil Login</a></li>
-              <li><a href="#">Profil Event Creator</a></li>
-            </ul>
-        </li>
         <li><a href="read_event.php">Event</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="read_sponsorship.php">Sponsor <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -190,6 +195,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="read_user.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_eo'] ?></a></li>
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
       </ul>
     </div>
