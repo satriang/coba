@@ -200,8 +200,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_eo'] ?></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="read_user.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_eo'] ?></a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
       </ul>
     </div>
   </div>
