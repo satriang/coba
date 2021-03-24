@@ -64,7 +64,7 @@ $eksekusi = mysqli_query($conn, $sql);
               <td><?php echo $row['id_kategori_event'] ?></td>
               <td><?php echo $row['kategori_event'] ?></td>
               <td><?php echo $row['tanggal_acara'] ?></td>
-              <td><?php echo $row['proposal'] ?></td>
+              <td><a href="proposal/<?php echo $row['proposal'] ?>"/>Baca Proposal</a></td>
               <td><?php echo $row['lokasi_event'] ?></td>
               <td><?php echo $row['status_terdanai'] ?></td>
               <td><?php echo $row['tanggal_berakhir'] ?></td>

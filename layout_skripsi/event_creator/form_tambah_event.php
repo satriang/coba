@@ -30,7 +30,7 @@ $query_kategori_event = mysqli_query($conn, "SELECT * FROM `kategori_event`");
   	<div style="overflow-x:auto;">
 		<h1 style="text-align: center;">Tambahkan Event</h1>
 			<table border="0">
-				<form action="input_proses_tambah_event.php" method="post">
+				<form action="input_proses_tambah_event.php" method="post"  enctype="multipart/form-data">
 					<tr>
 						<td style="font-weight: bold;">ID EVENT</td>
 						<td><input type="text" class="form-control" name="id_event" value="<?php echo $id_event; ?>" /> </td>
@@ -52,16 +52,16 @@ $query_kategori_event = mysqli_query($conn, "SELECT * FROM `kategori_event`");
 						<td><textarea class="form-control" name="lokasi_event"> </textarea> </td>
 					</tr>
 					<tr>
-						<td style="font-weight: bold;">TANGGAL</td>
+						<td style="font-weight: bold;">Status dana Event</td>
 						<td><select name="status_terdanai" class="form-control">
-								<option value="Terdanai">Terdanai</option>
-								<option value="Belum Terdanai">Belum Terdanai</option>
+								<option value="terdanai">Terdanai</option>
+								<option value="belum_terdanai">Belum Terdanai</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">Kategori Event</td>
-						<td><select name="status_terdanai" class="form-control">
+						<td><select name="id_kategori_event" class="form-control">
    							<?php
 							   while ($data_kategori_event = mysqli_fetch_array($query_kategori_event)){
 							?>
@@ -72,7 +72,7 @@ $query_kategori_event = mysqli_query($conn, "SELECT * FROM `kategori_event`");
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">Proposal</td>
-						<td><input type="file" name="proposal"/> </td>
+						<td><input type="file" name="proposal" accept="application/pdf" /> </td>
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align: right; position: right;"><input type="reset" class="w3-button w3-border w3-medium w3-red" value="Batal"/>
