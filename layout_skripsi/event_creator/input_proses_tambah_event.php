@@ -31,33 +31,32 @@ $file_tujuan = "proposal/".$nama_proposal_baru;
             $eksekusi = mysqli_query($conn,$sql);
 
             if($eksekusi){
-                echo "Data berhasil disimpan <br/>";
-                echo "Upload berhasil";
+               // echo "Data berhasil disimpan <br/>";
+               // echo "Upload berhasil";
+                echo ' <script type="text/javascript">
+            	alert("Tambah Event Baru Berhasil");
+                window.location.replace("read_event.php") </script>';
             }else{
-                echo "Data Gagal Disimpan : ". $sql . "<br>" . mysqli_error($koneksi);
-                echo "Upload Gagal";
+               // echo "Data Gagal Disimpan : ". $sql . "<br>" . mysqli_error($koneksi);
+               // echo "Upload Gagal";
+                echo ' <script type="text/javascript">
+            	alert("Gagal Menambahkan Event Baru");
+                window.location.replace("read_event.php") </script>';
             }
 
         }else{ // else upload gagal
-            echo "Gagal mengupload data";
+            //echo "Gagal mengupload data";
+            echo ' <script type="text/javascript">
+            	alert("Gagal Menambahkan Event Baru");
+                window.location.replace("read_event.php") </script>';
         }
     }else{
-        echo "format file harus PDF";
+        // echo "format file harus PDF";
+        echo ' <script type="text/javascript">
+            	alert("Format File Proposal Harus PDF");
+                window.location.replace("read_event.php") </script>';
     }
 
-/**$sql = "INSERT INTO `event`(`id_event`, `id_event_creator`, `id_kategori_event`, `nama_event`, `tanggal`
-            , `proposal`, `lokasi_event`, `status_terdanai`, `tanggal_terlaksana`, `status_terlaksana`) 
-            VALUES ('{$id_event}','{$id_event_creator}','{$id_ketegori_event}','{$nama_event}'
-            ,'{$tanggal}','{$nama_baru_proposal}','{$lokasi_event}','{$status_terdanai}','','belum terlaksana')" ;
 
-$eksekusi = mysqli_query($conn,$sql);
-
-if($eksekusi){
-	echo "Data berhasil disimpan";
-}else{
-	echo "Data Gagal Disimpan : ". $sql . "<br>" . mysqli_error($koneksi);
-}
-*/
-//header("Location: form_tambah_event.php") ;
 
 ?>

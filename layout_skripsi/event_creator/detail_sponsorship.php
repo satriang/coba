@@ -66,7 +66,7 @@ $row=mysqli_fetch_assoc($eksekusi_id);
     </div>
     <div class="well">
      <p>Ajukan Proposal</p><br/>
-     <a href="form_pengajuan.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>"  class="w3-button w3-border w3-small w3-purple">Ajukan</a>
+     <a href="form_pengajuan_event.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>"  class="w3-button w3-border w3-small w3-purple">Ajukan</a>
     </div>
   </div>
 

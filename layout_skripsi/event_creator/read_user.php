@@ -4,8 +4,8 @@ include_once('layout_atas.php');
 ?>
   <div class="col-2 col-s-3 menu " style="text-align:center; font-weight: bold;">
     <ul>
-      <li><a href="form_tambah_user.php">Tambah User</a></li>
-      <li><a href="form_cari_user.php">Cari</a></li>
+      <li><a href="form_profil_umum.php">Profil Umum</a></li>
+      <li><a href="form_profil_login.php">Profil Login</a></li>
     </ul>
   </div>
  <div class="col-9 col-s-9">
