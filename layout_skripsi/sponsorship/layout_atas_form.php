@@ -1,3 +1,19 @@
+<?php
+session_start();
+  if(!isset($_SESSION['id_user'])){
+    header("Location: ../login/login_sponsorship.php") ;
+  }
+
+include_once('koneksi.php');
+
+
+
+$id_sponsorship = $_SESSION['id_sponsorship'];
+$sql = "SELECT * FROM `sponsorship` WHERE id_sponsorship = '{$id_sponsorship}'" ;
+
+$eksekusi = mysqli_query($conn, $sql);
+$hasil = mysqli_fetch_assoc($eksekusi);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -153,6 +169,23 @@ ul li:hover {
 tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 </head>
+<script type="text/javascript">
+  function myFunction() {
+      var x = document.getElementById("dana").value;
+      var reverse = x.toString().split('').reverse().join(''),
+      ribuan = reverse.match(/\d{1,3}/g);
+      ribuan = ribuan.join('.').split('').reverse().join('');
+      document.getElementById("uang").innerHTML = ribuan;
+    }
+    function passwordFunction() {
+      var x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+</script>
 <body>
 
         <div class="jumbotron">
@@ -174,19 +207,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="read_event_creator.php">Event Creator</a></li>
         <li><a href="read_event.php">Event</a></li>
-        <li><a href="read_sponsorship.php">Sponsorship</a></li>
-        <li><a href="read_user.php">User</a></li>
-        <li><a href="read_kategori_event.php">Kategori Event</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="read_user.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_sponsorship'] ?></a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="container"> 
+<div class="container-fluid"> 
 <div class="row" style="margin-top:1em; margin-bottom:10em;">

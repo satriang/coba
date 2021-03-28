@@ -1,3 +1,19 @@
+<?php
+session_start();
+  if(!isset($_SESSION['id_user'])){
+    header("Location: ../login/login_sponsorship.php") ;
+  }
+
+include_once('koneksi.php');
+
+
+
+$id_sponsorship = $_SESSION['id_sponsorship'];
+$sql = "SELECT * FROM `sponsorship` WHERE id_sponsorship = '{$id_sponsorship}'" ;
+
+$eksekusi = mysqli_query($conn, $sql);
+$hasil = mysqli_fetch_assoc($eksekusi);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,6 +173,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
         <div class="jumbotron">
                 <div class="container text-center">
+                  <br/>
                   <h1>Sponsorship Event</h1>      
                   <p>Get Sponsors For Your Event</p>
                 </div>
@@ -174,14 +191,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="read_event_creator.php">Event Creator</a></li>
         <li><a href="read_event.php">Event</a></li>
-        <li><a href="read_sponsorship.php">Sponsorship</a></li>
-        <li><a href="read_user.php">User</a></li>
-        <li><a href="read_kategori_event.php">Kategori Event</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+        <li><a href="read_user.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_sponsorship'] ?></a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       </ul>
     </div>
   </div>

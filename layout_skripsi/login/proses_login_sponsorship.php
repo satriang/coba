@@ -22,7 +22,7 @@
 	}else{
 		$_SESSION["id_user"] = $hasil["id_user"] ;
 		$_SESSION["id_sponsorship"] = $hasil["id_sponsorship"] ;
-		header("Location: ../sponsorship/read_user.php");
+		header("Location: ../sponsorship/read_user_umum.php");
 	}
 	
 ?>

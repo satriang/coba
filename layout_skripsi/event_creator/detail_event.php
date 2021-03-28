@@ -67,7 +67,9 @@ $row=mysqli_fetch_assoc($eksekusi_id);
               <td><?php echo $row['status_terlaksana'] ?></td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align:right;"><a href="read_event.php"  class="w3-button w3-border w3-small w3-purple"> Kembali </a></td>
+                <td colspan="2" style="text-align:right;">
+                <a href="read_event.php"  class="w3-button w3-border w3-small w3-purple"> Kembali </a>
+                </td>
             </tr>
           </tbody>
         </table>
