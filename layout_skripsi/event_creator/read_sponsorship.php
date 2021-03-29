@@ -42,7 +42,7 @@ $eksekusi = mysqli_query($conn, $sql);
                         <td><?php echo $hasil = 'Rp ' . number_format($row['dana_maksimal'], 2, ",", "."); ?></td>
                       </tr>
                       <tr>
-                        <td><a href="detail_sponsorship.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>"  class="w3-button w3-border w3-small w3-deep-purple"> Lihat Detail </a></td>
+                        <td><a href="detail_sponsorship.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>"   style="float: right;"> >>Lihat Detail </a></td>
                       </tr>
                     </tbody>
                           <?php

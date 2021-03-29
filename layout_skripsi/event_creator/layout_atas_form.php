@@ -170,6 +170,23 @@ ul li:hover {
 tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 </head>
+<script type="text/javascript">
+  function myFunction() {
+      var x = document.getElementById("dana").value;
+      var reverse = x.toString().split('').reverse().join(''),
+      ribuan = reverse.match(/\d{1,3}/g);
+      ribuan = ribuan.join('.').split('').reverse().join('');
+      document.getElementById("uang").innerHTML = ribuan;
+    }
+    function passwordFunction() {
+      var x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+</script>
 <body>
 
         <div class="jumbotron">
@@ -192,20 +209,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="read_event.php">Event</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="read_sponsorship.php">Sponsor <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="read_sponsorship.php">Cari Sponsor</a></li>
-              <li><a href="#">Sponsor Diterima</a></li>
-            </ul>
-        </li>
+        <li><a href="read_sponsorship.php">Sponsorship</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="read_user.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_eo'] ?></a></li>
+      <li><a href="read_user_umum.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_eo'] ?></a></li>
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="container"> 
+<div class="container-fluid"> 
 <div class="row" style="margin-top:1em; margin-bottom:10em;">

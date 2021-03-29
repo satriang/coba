@@ -2,9 +2,7 @@
 
 include_once('layout_atas_form.php');
 
-$id_sponsorship = $hasil['id_sponsorship'];
-
-$sql_sponsor ="SELECT * FROM sponsorship WHERE id_sponsorship = '{$id_sponsorship}'";
+$sql_sponsor ="SELECT * FROM event_creator WHERE id_event_creator = '{$id_event_creator}'";
 $query_sql_sponsor =mysqli_query($conn, $sql_sponsor);
 $row = mysqli_fetch_array($query_sql_sponsor);
 
@@ -17,14 +15,14 @@ $row = mysqli_fetch_array($query_sql_sponsor);
   </div>
   <div class="col-9 col-s-9">
       <table border="0">
-        <form action="update_proses_profil_umum_sponsorship.php" method="post"  enctype="multipart/form-data">
+        <form action="update_proses_profil_umum.php" method="post"  enctype="multipart/form-data">
           <tr>
-            <td style="font-weight: bold;">ID SPONSORSHIP</td>
-            <td><input type="text" class="form-control" name="id_sponsorship" value="<?php echo $row['id_sponsorship'] ?>" readonly/> </td>
+            <td style="font-weight: bold;">ID EVENT CREATOR</td>
+            <td><input type="text" class="form-control" name="id_event_creator" value="<?php echo $row['id_event_creator'] ?>" readonly/> </td>
           </tr>
           <tr>
-            <td style="font-weight: bold;">NAMA SPONSORSHIP</td>
-            <td><input type="text" class="form-control" name="nama_sponsorship" value="<?php echo $row['nama_sponsorship'] ?>"/> </td>
+            <td style="font-weight: bold;">NAMA EO</td>
+            <td><input type="text" class="form-control" name="nama_eo" value="<?php echo $row['nama_eo'] ?>"/> </td>
           </tr>
           <tr>
             <td style="font-weight: bold;">ALAMAT</td>
@@ -33,16 +31,6 @@ $row = mysqli_fetch_array($query_sql_sponsor);
           <tr>
             <td style="font-weight: bold;">No TELP</td>
             <td><input type="text" class="form-control" name="no_telp" value="<?php echo $row['no_telp'] ?>"/> </td>
-          </tr>
-          <tr>
-            <td style="font-weight: bold;">DANA MAKSIMAL</td>
-            <td><input type="text" class="form-control" name="dana_maksimal" id="dana" onkeyup="myFunction()" value="<?php echo $row['dana_maksimal'] ?>"/> 
-                <label style="float: right;"><?php $hasil_rupiah = "Rp " . number_format($row["dana_maksimal"],2,',','.'); echo $hasil_rupiah;?></label>
-            </td>
-          </tr>
-          <tr>
-            <td style="font-weight: bold;">DESKRPSI SPONSORSHIP</td>
-            <td><textarea name="deskripsi_sponsorship" class="form-control"><?php echo $row['deskripsi_sponsorship'] ?></textarea> </td>
           </tr>
           <tr>
             <td colspan="2" style="text-align: right;">

@@ -3,21 +3,18 @@
 include_once('layout_atas_form.php');
 include_once('koneksi.php');
 
+$id_event = $_GET['id_event'];
 //get data id event
-$query_event = mysqli_query($conn, "SELECT max(id_event) as kodeMaksimal FROM event");
-$data_event = mysqli_fetch_array($query_event);
-$id_event = $data_event['kodeMaksimal'];
+$sql = "SELECT event.id_event, event.nama_event, event_creator.id_event_creator, event_creator.nama_eo, kategori_event.id_kategori_event, kategori_event.kategori_event, DATE_FORMAT(event.tanggal, '%d %M %Y') as tanggal_acara, event.proposal, event.lokasi_event, event.status_terdanai, DATE_FORMAT(event.tanggal_terlaksana, '%d %M %Y') as tanggal_berakhir, event.status_terlaksana
+FROM event
+JOIN event_creator ON event.id_event_creator = event_creator.id_event_creator
+JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event WHERE `id_event`='{$id_event}'" ;
 
-$urutan_event = (int) substr($id_event, 3, 3);
-
-$urutan_event++;
-
-$huruf_event = "EVT";
-$id_event = $huruf_event . sprintf("%03s", $urutan_event);
+$eksekusi_id = mysqli_query($conn, $sql);
+$row=mysqli_fetch_assoc($eksekusi_id);
 
 //get data kategori event
 $query_kategori_event = mysqli_query($conn, "SELECT * FROM `kategori_event`");
-
 ?>
 <script type="text/javascript">
    $(document).ready(function(){
@@ -32,34 +29,41 @@ $query_kategori_event = mysqli_query($conn, "SELECT * FROM `kategori_event`");
   </div>
 <div class="col-10 col-s-9">
   	<div style="overflow-x:auto;">
-		<h1 style="text-align: center;">Tambahkan Event</h1>
+		<h1 style="text-align: center;">Ubah Event</h1>
 			<table border="0">
 				<form action="input_proses_tambah_event.php" method="post"  enctype="multipart/form-data">
 					<tr>
 						<td style="font-weight: bold;">ID EVENT</td>
-						<td><input type="text" class="form-control" name="id_event" value="<?php echo $id_event; ?>" /> </td>
+						<td><input type="text" class="form-control" name="id_event" value="<?php echo $row['id_event'] ?>" /> </td>
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">ID EVENT CREATOR</td>
-						<td><input type="text" class="form-control" name="id_event_creator" value="<?php echo $hasil['id_event_creator'] ?>"/> </td>
+						<td><input type="text" class="form-control" name="id_event_creator" value="<?php echo $row['id_event_creator'] ?>"/> </td>
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">NAMA EVENT</td>
-						<td><input type="text" class="form-control" name="nama_event" /> </td>
+						<td><input type="text" class="form-control" name="nama_event" value="<?php echo $row['nama_event'] ?>"/> </td>
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">TANGGAL</td>
-						<td><input type="text" name="tanggal" id="tanggal"/> </td>
+						<td><input type="text" class="form-control" name="tanggal" id="tanggal" value="<?php echo $row['tanggal_acara'] ?>"/> </td>
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">Lokasi Event</td>
-						<td><textarea class="form-control" name="lokasi_event"> </textarea> </td>
+						<td><textarea class="form-control" name="lokasi_event" ><?php echo $row['lokasi_event'] ?></textarea> </td>
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">Status dana Event</td>
 						<td><select name="status_terdanai" class="form-control">
-								<option value="terdanai">Terdanai</option>
-								<option value="belum_terdanai">Belum Terdanai</option>
+                                <?php
+                                    if($row['status_terdanai'] == 'terdanai'){
+                                        echo "<option value='terdanai' selected>Terdanai</option>
+                                        <option value='belum terdanai'>Belum Terdanai</option>";
+                                    }else{
+                                        echo "<option value='terdanai' >Terdanai</option>
+                                        <option value='belum terdanai' selected>Belum Terdanai</option>";
+                                    }  
+                                ?>
 							</select>
 						</td>
 					</tr>

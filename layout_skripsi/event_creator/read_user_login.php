@@ -17,7 +17,7 @@ $row = mysqli_fetch_array($query_sql_user);
   </div>
   <div class="col-9 col-s-9">
       <table border="0">
-        <form action="update_proses_profil_login_sponsorship.php" method="post"  enctype="multipart/form-data">
+        <form action="update_proses_profil_login.php" method="post"  enctype="multipart/form-data">
           <tr>
             <td style="font-weight: bold;">ID USER</td>
             <td><input type="text" class="form-control" name="id_user" value="<?php echo $row['id_user'] ?>" readonly/> </td>

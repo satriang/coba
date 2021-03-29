@@ -210,7 +210,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <li><a href="read_event.php">Event</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="read_user.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_sponsorship'] ?></a></li>
+        <li><a href="read_user_umum.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_sponsorship'] ?></a></li>
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       </ul>
     </div>
