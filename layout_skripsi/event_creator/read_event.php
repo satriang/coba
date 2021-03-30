@@ -65,11 +65,8 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
               <tbody>
                 <tr>
                   <th class="w3-center">NO</th>
-                  <th class="w3-center">ID EVENT</th>
                   <th class="w3-center">NAMA EVENT</th>
-                  <th class="w3-center">ID EVENT CREATOR</th>
                   <th class="w3-center">NAMA EVENT CREATOR</th>
-                  <th class="w3-center">ID KATEGORI EVENT</th>
                   <th class="w3-center">KATEGORI EVENT </th>
                   <th class="w3-center">TANGGAL EVENT</th>
                   <th class="w3-center">PROPOSAL</th>
@@ -87,11 +84,8 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
 
                 <tr>
                   <td class="w3-center"><?php echo $no ?></td>         
-                  <td class="w3-center"><?php echo $row['id_event'] ?></td>
                   <td class="w3-center"><?php echo $row['nama_event'] ?></td>
-                  <td class="w3-center"><?php echo $row['id_event_creator'] ?></td>
                   <td class="w3-center"><?php echo $row['nama_eo'] ?></td>
-                  <td class="w3-center"><?php echo $row['id_kategori_event'] ?></td>
                   <td class="w3-center"><?php echo $row['kategori_event'] ?></td>
                   <td class="w3-center"><?php echo $row['tanggal_acara'] ?></td>
                   <td class="w3-center"><a href="proposal/<?php echo $row['proposal'] ?>"/>Baca Proposal</a></td>
@@ -106,7 +100,7 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
                     <a href="hapus_event.php?id_event=<?php echo $row['id_event'] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="w3-button w3-border w3-small w3-red"> Hapus </a>
                   </td>  
                   <td class="w3-center">
-                    <a href="detail_event.php?id_event=<?php echo $row['id_event'] ?>"  class="w3-button w3-border w3-small w3-deep-purple"> Lihat Detail </a>
+                    <a href="detail_event1.php?id_event=<?php echo $row['id_event'] ?>"  class="w3-button w3-border w3-small w3-deep-purple"> Lihat Detail </a>
                   </td>      
                 </tr>
 
@@ -151,9 +145,7 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
                 <tr>
                   <th class="w3-center">NO</th>
                   <th class="w3-center">ID PENGAJUAN EVENT</th>
-                  <th class="w3-center">ID EVENT</th>
                   <th class="w3-center">NAMA EVENT</th>
-                  <th class="w3-center">ID SPONSORSHIP</th>
                   <th class="w3-center">NAMA SPONSORSHIP</th>
                   <th class="w3-center">STATUS</th>
                 </tr>
@@ -168,7 +160,6 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
                   <td class="w3-center"><?php echo $row2['id_pengajuan_event'] ?></td>
                   <td class="w3-center"><a href="detail_event.php?id_event=<?php echo $row2['id_event'] ?>"><?php echo $row2['id_event'] ?></a></td>
                   <td class="w3-center"><a href="detail_event.php?id_event=<?php echo $row2['id_event'] ?>"><?php echo $row2['nama_event'] ?></a></td>
-                  <td class="w3-center"><a href="detail_sponsorship.php?id_sponsorship=<?php echo $row2['id_sponsorship'] ?>"><?php echo $row2['id_sponsorship'] ?></a></td>
                   <td class="w3-center"><a href="detail_sponsorship.php?id_sponsorship=<?php echo $row2['id_sponsorship'] ?>"><?php echo $row2['nama_sponsorship'] ?></a></td>
                   <td class="w3-center"><?php echo $row2['status'] ?></td>
                 </tr>
@@ -214,9 +205,7 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
                 <tr>
                   <th class="w3-center">NO</th>
                   <th class="w3-center">ID PENGAJUAN EVENT</th>
-                  <th class="w3-center">ID EVENT</th>
                   <th class="w3-center">NAMA EVENT</th>
-                  <th class="w3-center">ID SPONSORSHIP</th>
                   <th class="w3-center">NAMA SPONSORSHIP</th>
                   <th class="w3-center">DANA</th> 
                   <th class="w3-center">STATUS</th>
@@ -230,12 +219,9 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
                 <tr>
                   <td class="w3-center"><?php echo $no ?></td>         
                   <td class="w3-center"><?php echo $row3['id_pengajuan_event'] ?></td>
-                  <td class="w3-center"><a href="detail_event.php?id_event=<?php echo $row3['id_event'] ?>">
-                    <?php echo $row3['id_event'] ?></a></td>
                   <td class="w3-center"><a href="detail_event.php?id_event=<?php echo $row3['id_event'] ?>"><?php echo $row3['nama_event'] ?></a></td>
-                  <td class="w3-center"><a href="detail_sponsorship.php?id_sponsorship=<?php echo $row3['id_sponsorship'] ?>"><?php echo $row3['id_sponsorship'] ?></a></td>
                   <td class="w3-center"><a href="detail_sponsorship.php?id_sponsorship=<?php echo $row3['id_sponsorship'] ?>"><?php echo $row3['nama_sponsorship'] ?></a></td>
-                    <td class="w3-center"><label style="float: right;"><?php $hasil_rupiah = "Rp " . number_format($row3['dana_event'],2,',','.'); echo $hasil_rupiah;?></label></td>
+                    <td class="w3-center"><label><?php $hasil_rupiah = "Rp " . number_format($row3['dana_event'],2,',','.'); echo $hasil_rupiah;?></label></td>
                   <td class="w3-center"><?php echo $row3['status'] ?></td>
                 </tr>
 

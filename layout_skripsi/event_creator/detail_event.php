@@ -5,10 +5,15 @@ include_once('koneksi.php');
 
 $id_event = $_GET['id_event'] ;
 
-$sql = "SELECT event.id_event, event.nama_event, event_creator.id_event_creator, event_creator.nama_eo, kategori_event.id_kategori_event, kategori_event.kategori_event, DATE_FORMAT(event.tanggal, '%d %M %Y') as tanggal_acara, event.proposal, event.lokasi_event, event.status_terdanai, DATE_FORMAT(event.tanggal_terlaksana, '%d %M %Y') as tanggal_berakhir, event.status_terlaksana
+$sql = "SELECT event.id_event, event.nama_event, event_creator.id_event_creator, event_creator.no_telp,
+user.email, event_creator.nama_eo, kategori_event.id_kategori_event, kategori_event.kategori_event, 
+DATE_FORMAT(event.tanggal, '%d %M %Y') as tanggal_acara, event.proposal, event.lokasi_event, 
+event.status_terdanai, DATE_FORMAT(event.tanggal_terlaksana, '%d %M %Y') as tanggal_berakhir, 
+event.status_terlaksana
 FROM event
 JOIN event_creator ON event.id_event_creator = event_creator.id_event_creator
-JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event WHERE `id_event`='{$id_event}'" ;
+JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event 
+JOIN user ON event_creator.id_user = user.id_user WHERE `id_event`='{$id_event}'" ;
 
 $eksekusi_id = mysqli_query($conn, $sql);
 $row=mysqli_fetch_assoc($eksekusi_id);
@@ -33,6 +38,14 @@ $row=mysqli_fetch_assoc($eksekusi_id);
             <tr>
               <th class="w3-center">NAMA EVENT CREATOR</th>
               <td><?php echo $row['nama_eo'] ?></td>
+            </tr>
+            <tr>
+              <th class="w3-center">No Telp</th>
+              <td><?php echo $row['no_telp'] ?></td>
+            </tr>
+            <tr>
+              <th class="w3-center">Email</th>
+              <td><?php echo $row['email'] ?></td>
             </tr>
             <tr>
               <th class="w3-center">ID KATEGORI EVENT</th>

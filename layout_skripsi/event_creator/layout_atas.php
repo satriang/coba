@@ -182,7 +182,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="w3-bar-item w3-button w3-theme-l1" href="read_kategori.php"><img src="se1.png"></a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="index.php"><img src="se1.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">

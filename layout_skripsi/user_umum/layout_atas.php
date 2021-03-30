@@ -1,25 +1,9 @@
-<?php
-session_start();
-  if(!isset($_SESSION['id_user'])){
-    header("Location: ../login/login_sponsorship.php") ;
-  }
-
-include_once('koneksi.php');
-
-
-
-$id_sponsorship = $_SESSION['id_sponsorship'];
-$sql = "SELECT * FROM `sponsorship` WHERE id_sponsorship = '{$id_sponsorship}'" ;
-
-$eksekusi = mysqli_query($conn, $sql);
-$hasil = mysqli_fetch_assoc($eksekusi);
-?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Sponsorship Event</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href='se1.png' rel='shortcut icon'> 
+<link href='se1.png' rel='shortcut icon'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -154,27 +138,27 @@ ul li:hover {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 </head>
 <body>
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="margin-top: 1em;">
                 <div class="container text-center">
                   <br/>
-                  <h1>Sponsorship Event</h1>      
+                  <h1>Sponsorship Event</h1>
                   <p>Get Sponsors For Your Event</p>
                 </div>
         </div>
@@ -185,17 +169,16 @@ tr:nth-child(even) {background-color: #f2f2f2;}
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="w3-bar-item w3-button w3-theme-l1" href="index.php"><img src="se1.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="read_event.php">Event</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="read_user_umum.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_sponsorship'] ?></a></li>
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+      <li><a href="../signup/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="../login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
@@ -203,5 +186,3 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 <div class="container-fluid"> 
 <div class="row" style="margin-top:1em; margin-bottom:10em;">
-  
-    

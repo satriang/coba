@@ -1,26 +1,10 @@
-<?php
-session_start();
-  if(!isset($_SESSION['id_user'])){
-    header("Location: ../login/login_sponsorship.php") ;
-  }
-
-include_once('koneksi.php');
-
-
-
-$id_sponsorship = $_SESSION['id_sponsorship'];
-$sql = "SELECT * FROM `sponsorship` WHERE id_sponsorship = '{$id_sponsorship}'" ;
-
-$eksekusi = mysqli_query($conn, $sql);
-$hasil = mysqli_fetch_assoc($eksekusi);
-?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Sponsorship Event</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='se1.png' rel='shortcut icon'> 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -85,7 +69,7 @@ html {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #001f00;
+  background-color: #b2ede0;
   text-align: center;
   padding-top: 0.3vw;
   padding-bottom: 0.3vw;
@@ -126,7 +110,7 @@ html {
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
-/**table {
+table {
   border-collapse: collapse;
   width: 100%;
 
@@ -137,7 +121,7 @@ th, td {
   padding: 2vw;
   margin-top:1vw;
 }
-**/
+
 ul li {
   padding: 5px;
   margin-left: 10px;
@@ -173,7 +157,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
         <div class="jumbotron">
                 <div class="container text-center">
-                  <br/>
                   <h1>Sponsorship Event</h1>      
                   <p>Get Sponsors For Your Event</p>
                 </div>
@@ -191,17 +174,14 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="read_event.php">Event</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="read_user_umum.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_sponsorship'] ?></a></li>
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+      <li><a href="../signup/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="../login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="container-fluid"> 
+<div class="container"> 
 <div class="row" style="margin-top:1em; margin-bottom:10em;">
-  
-    
