@@ -1,20 +1,8 @@
-<?php session_start();
-  if(!isset($_SESSION['id_user'])){
-    header("Location: ../login/login_event_creator.php") ;
-  }
-include_once('koneksi.php');
-$id_event_creator = $_SESSION['id_event_creator'];
-$sql_user = "SELECT * FROM `event_creator` WHERE id_event_creator = '{$id_event_creator}'" ;
-
-$eksekusi = mysqli_query($conn, $sql_user);
-$hasil = mysqli_fetch_assoc($eksekusi);
-  ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sponsorship Event</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href='se1.png' rel='shortcut icon'> 
+<link rel="icon" href="se1.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -80,7 +68,7 @@ html {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #001f00;
+  background-color: #b2ede0;
   text-align: center;
   padding-top: 0.3vw;
   padding-bottom: 0.3vw;
@@ -121,7 +109,7 @@ html {
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
-/**table {
+table {
   border-collapse: collapse;
   width: 100%;
 
@@ -132,7 +120,7 @@ th, td {
   padding: 2vw;
   margin-top:1vw;
 }
-**/
+
 ul li {
   padding: 5px;
   margin-left: 10px;
@@ -149,29 +137,65 @@ ul li:hover {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
+}
+a {
+  color:#000000;
+  font-weight: bold;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
-.mySlides {display:none;}
 </style>
 </head>
-<body>
+<script type="text/javascript">
+    function validasiemail(){
+        var x=document.forms["cekemail"]["email"].value;
+        var password1 = document.getElementById('password').value;
+        var password2 = document.getElementById('repassword').value;
+        var atpos=x.indexOf("@");
+        var dotpos=x.lastIndexOf(".");
+        if (x == "" || password1 =="" || password2 == "") {
+            alert("Isi inputan email, Password dan Repassword anda");
+            window.location = "signup_event_creator.php";
+        } else {
+            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+            {
+                alert("Isi Email dengan Benar");
+            }
+            else if (password1 != password2){
+                alert("inputan password dan repassword anda tidak sama");
+            }
+            else {
+                alert ("email dan password anda valid")
+            }
+        }
+
+    }
+    function passwordFunction() {
+      var x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+   </script>
+<body style="background-color: #E5FFCC;">
 
         <div class="jumbotron">
                 <div class="container text-center">
                   <br/>
-                  <h1>Sponsorship Event</h1>      
-                  <p>Get Sponsors For Your Event</p>
+                  <h1>Sponsorship Event</h1>
+                  <p>Suggest your event proposal for sponsorship</p>
                 </div>
         </div>
 
@@ -181,24 +205,31 @@ tr:nth-child(even) {background-color: #f2f2f2;}
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
-      <a class="w3-bar-item w3-button w3-theme-l1" href="index.php"><img src="se1.png"></a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="../user_umum/" style="text-align: center;"><img src="se1.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="read_event.php">Event <?php echo $hasil['nama_eo'] ?></a></li>
-        <li><a href="read_sponsorship.php">Sponsor</a></li>
-      </ul>
+      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="read_user_umum.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_eo'] ?></a></li>
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+        <!--
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      -->
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="container-fluid"> 
+<div class="container-fluid">
 <div class="row" style="margin-top:1em; margin-bottom:10em;">
-  
-    
+  <div class="col-2 col-s-3 menu " style="text-align:center; font-weight: bold;">
+    <ul>
+      <li><a href="login_sponsorship.php" style="color:#000000; font-weight: bold;">SPONSORSHIP</a></li>
+      <li><a href="login_event_creator.php">EVENT CREATOR</a></li>
+    </ul>
+  </div>
+
+  <div class="col-3 col-s-9">
+
+  </div>

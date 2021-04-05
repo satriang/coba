@@ -4,7 +4,12 @@ include_once('layout_atas_form.php');
 
 $id_sponsorship = $hasil['id_sponsorship'];
 
-$sql_sponsor ="SELECT * FROM sponsorship WHERE id_sponsorship = '{$id_sponsorship}'";
+$sql_sponsor ="SELECT sponsorship.id_sponsorship, sponsorship.judul_sponsorship, sponsorship.nama_sponsorship,
+                kategori_sponsorship.nama_kategori_sponsorship, sponsorship.nama_sponsorship,
+                sponsorship.alamat, sponsorship.no_telp, sponsorship.deskripsi_sponsorship, kategori_sponsorship.id_kategori_sponsorship
+                FROM sponsorship 
+                JOIN kategori_sponsorship ON sponsorship.id_kategori_sponsorship = kategori_sponsorship.id_kategori_sponsorship 
+                WHERE id_sponsorship = '{$id_sponsorship}'";
 $query_sql_sponsor =mysqli_query($conn, $sql_sponsor);
 $row = mysqli_fetch_array($query_sql_sponsor);
 
@@ -23,6 +28,15 @@ $row = mysqli_fetch_array($query_sql_sponsor);
             <td><input type="text" class="form-control" name="id_sponsorship" value="<?php echo $row['id_sponsorship'] ?>" readonly/> </td>
           </tr>
           <tr>
+            <td style="font-weight: bold;">JUDUL SPONSORSHIP</td>
+            <td><input type="text" class="form-control" name="judul_sponsorship" value="<?php echo $row['judul_sponsorship'] ?>"/> </td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold;">KATEGORI SPONSORSHIP</td>
+            <td><input type="text" class="form-control" name="id_kategori_sponsorship" value="<?php echo $row['nama_kategori_sponsorship'] ?>"/>
+                <input type="hidden" name="id_kategori_sponsorship" value="<?php echo $row['id_kategori_sponsorship']; ?>"/></td>
+          </tr>
+          <tr>
             <td style="font-weight: bold;">NAMA SPONSORSHIP</td>
             <td><input type="text" class="form-control" name="nama_sponsorship" value="<?php echo $row['nama_sponsorship'] ?>"/> </td>
           </tr>
@@ -33,12 +47,6 @@ $row = mysqli_fetch_array($query_sql_sponsor);
           <tr>
             <td style="font-weight: bold;">No TELP</td>
             <td><input type="text" class="form-control" name="no_telp" value="<?php echo $row['no_telp'] ?>"/> </td>
-          </tr>
-          <tr>
-            <td style="font-weight: bold;">DANA MAKSIMAL</td>
-            <td><input type="text" class="form-control" name="dana_maksimal" id="dana" onkeyup="myFunction()" value="<?php echo $row['dana_maksimal'] ?>"/> 
-                <label style="float: right;"><?php $hasil_rupiah = "Rp " . number_format($row["dana_maksimal"],2,',','.'); echo $hasil_rupiah;?></label>
-            </td>
           </tr>
           <tr>
             <td style="font-weight: bold;">DESKRPSI SPONSORSHIP</td>

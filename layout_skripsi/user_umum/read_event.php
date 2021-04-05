@@ -51,16 +51,16 @@ $eksekusi = mysqli_query($conn, $sql);
                             ?>
 
             <tr>
-            <td><?php echo $no ?></td>         
-              <td><?php echo $row['nama_event'] ?></td>
-              <td><?php echo $row['nama_eo'] ?></td>
-              <td><?php echo $row['kategori_event'] ?></td>
-              <td><?php echo $row['tanggal_acara'] ?></td>
-              <td><?php echo $row['lokasi_event'] ?></td>
-              <td><?php echo $row['status_terdanai'] ?></td>
-              <td><?php echo $row['tanggal_berakhir'] ?></td>
-              <td><?php echo $row['status_terlaksana'] ?></td>
-              <td>
+            <td class="w3-center"><?php echo $no ?></td>         
+              <td class="w3-center"><?php echo $row['nama_event'] ?></td>
+              <td class="w3-center"><?php echo $row['nama_eo'] ?></td>
+              <td class="w3-center"><?php echo $row['kategori_event'] ?></td>
+              <td class="w3-center"><?php echo $row['tanggal_acara'] ?></td>
+              <td class="w3-center"><?php echo $row['lokasi_event'] ?></td>
+              <td class="w3-center"><?php echo $row['status_terdanai'] ?></td>
+              <td class="w3-center"><?php echo $row['tanggal_berakhir'] ?></td>
+              <td class="w3-center"><?php echo $row['status_terlaksana'] ?></td>
+              <td class="w3-center">
                 <a href="detail_event.php?id_event=<?php echo $row['id_event'] ?>" class="w3-button w3-border w3-small w3-deep-purple"> Lihat Detail </a>
               </td>      
             </tr>

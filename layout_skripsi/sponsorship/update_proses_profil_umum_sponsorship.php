@@ -2,6 +2,8 @@
 	include_once('koneksi.php');
 
 	$id_sponsorship = $_POST['id_sponsorship'] ;
+	$judul_sponsorship = $_POST['judul_sponsorship'];
+	$id_kategori_sponsorship = $_POST['id_kategori_sponsorship'];
 	$nama_sponsorship = $_POST['nama_sponsorship'];
 	$alamat = $_POST['alamat'] ;
 	$no_telp = $_POST['no_telp'];
@@ -9,10 +11,11 @@
 	$deskripsi_sponsorship = $_POST['deskripsi_sponsorship'];
 	
 	$sql = "UPDATE sponsorship
-			SET nama_sponsorship = '{$nama_sponsorship}',
+			SET id_kategori_sponsorship = '{$id_kategori_sponsorship}',
+				judul_sponsorship = '{$judul_sponsorship}',
+				nama_sponsorship = '{$nama_sponsorship}',
 				alamat = '{$alamat}',
 				no_telp = '{$no_telp}',
-				dana_maksimal = '{$dana_maksimal}',
 				deskripsi_sponsorship = '{$deskripsi_sponsorship}' 
 			WHERE `id_sponsorship`='{$id_sponsorship}'" ;
 	

@@ -186,6 +186,13 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         x.type = "password";
       }
     }
+    function jumpeFunction() {
+      var x = document.getElementById("jumlah_peserta").value;
+      var reverse = x.toString().split('').reverse().join(''),
+      ribuan = reverse.match(/\d{1,3}/g);
+      ribuan = ribuan.join('.').split('').reverse().join('');
+      document.getElementById("jumpe").innerHTML = ribuan;
+    }
 </script>
 <body>
 

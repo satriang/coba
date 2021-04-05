@@ -35,11 +35,9 @@ $eksekusi = mysqli_query($conn, $sql);
           <tbody>
             <tr>
             <th class="w3-center">NO</th>
-              <th class="w3-center">ID_SPONSORSHIP</th>
-              <th class="w3-center">ID_USER</th>
-              <th class="w3-center">EMAIL</th>
               <th class="w3-center">NAMA_SPONSORSHIP</th>
               <th class="w3-center">ALAMAT</th>
+              <th class="w3-center">EMAIL</th>
               <th class="w3-center">NO_TELP</th>
               <th colspan="3" class="w3-center">ACTION</th>
             </tr>
@@ -50,14 +48,12 @@ $eksekusi = mysqli_query($conn, $sql);
                             ?>
 
             <tr>
-            <td><?php echo $no ?></td>         
-              <td><?php echo $row['id_sponsorship'] ?></td>
-              <td><?php echo $row['id_user'] ?></td>
-              <td><?php echo $row['email'] ?></td>
-              <td><?php echo $row['nama_sponsorship'] ?></td>
-              <td><?php echo $row['alamat'] ?></td>
-              <td><?php echo $row['no_telp'] ?></td>
-              <td>
+            <td><?php echo $no ?></td>
+              <td class="w3-center"><?php echo $row['nama_sponsorship'] ?></td>
+              <td class="w3-center"><?php echo $row['alamat'] ?></td>
+              <td class="w3-center"><?php echo $row['email'] ?></td>
+              <td class="w3-center"><?php echo $row['no_telp'] ?></td>
+              <td class="w3-center">
                 <a href="detail_sponsorship.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>"  class="w3-button w3-border w3-small w3-deep-purple"> Lihat Detail </a>
               </td>         
             </tr>

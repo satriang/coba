@@ -5,10 +5,9 @@ include_once('koneksi.php');
 $id_sponsorship = $_GET['id_sponsorship'] ;
 
 $sql ="SELECT sponsorship.id_sponsorship, user.id_user, user.email, 
-       sponsorship.nama_sponsorship, sponsorship.alamat, sponsorship.no_telp, sponsorship.deskripsi_sponsorship, kategori_sponsorship.nama_kategori_sponsorship
-       FROM `sponsorship` 
-       JOIN user on sponsorship.id_user = user.id_user 
-       JOIN kategori_sponsorship ON sponsorship.id_kategori_sponsorship = kategori_sponsorship.id_kategori_sponsorship
+       sponsorship.nama_sponsorship, sponsorship.alamat, sponsorship.no_telp, 
+       sponsorship.dana_maksimal, sponsorship.deskripsi_sponsorship 
+       FROM `sponsorship` JOIN user on sponsorship.id_user = user.id_user 
        WHERE id_sponsorship = '{$id_sponsorship}' ";
 $eksekusi_id = mysqli_query($conn, $sql);
 $row=mysqli_fetch_assoc($eksekusi_id);
@@ -35,8 +34,8 @@ $row=mysqli_fetch_assoc($eksekusi_id);
 
                         </tr>
                         <tr>
-                            <th>Kategori Sponsorship</th>
-                            <td><?php echo $row['nama_kategori_sponsorship'] ?></td>
+                            <th>Dana </th>
+                            <td><?php echo $hasil = 'Rp ' . number_format($row['dana_maksimal'], 2, ",", "."); ?></td>
 
                         </tr>
                           </tbody>

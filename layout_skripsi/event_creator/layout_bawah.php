@@ -11,6 +11,7 @@
   <p>Footer</p>
 </div>
 <script>
+
 function openCity(evt, cityName) {
   var i, x, tablinks;
   x = document.getElementsByClassName("city");

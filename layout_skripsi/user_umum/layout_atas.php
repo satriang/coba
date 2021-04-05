@@ -158,8 +158,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <div class="jumbotron" style="margin-top: 1em;">
                 <div class="container text-center">
                   <br/>
-                  <h1>Sponsorship Event</h1>
-                  <p>Get Sponsors For Your Event</p>
+
+                   <h2>Kalian punya event ? Bingung Cari Sponsor ? </h2>
+                  <p>Dapatkan Sponsor untuk event mu di Sponsorship Event</p>
                 </div>
         </div>
 

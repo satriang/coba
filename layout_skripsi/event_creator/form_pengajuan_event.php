@@ -18,7 +18,8 @@ $urutan_pengajuan_event++;
 $huruf_pengajuan_event = "PJE";
 $id_pengajuan_event = $huruf_pengajuan_event . sprintf("%03s", $urutan_pengajuan_event);
 //get data id event
-$query_event = mysqli_query($conn, "SELECT * FROM event WHERE id_event_creator = '{$id_event_creator}'");
+$query_event = mysqli_query($conn, "SELECT * FROM event WHERE 
+id_event_creator = '{$id_event_creator}' AND status_terlaksana = 'BELUM TERLAKSANA'");
 
 
 ?>
@@ -32,7 +33,9 @@ $query_event = mysqli_query($conn, "SELECT * FROM event WHERE id_event_creator =
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">ID SPONSORSHIP</td>
-						<td><input type="text" class="form-control" name="id_sponsorship" value="<?php echo $id_sponsorship; ?>" /> </td>
+						<td><input type="text" class="form-control" name="id_sponsorship" value="<?php echo $id_sponsorship; ?>" />
+							<input type="hidden" class="form-control" name="status" value="DI AJUKAN" />
+						</td>
 					</tr>
                     <tr>
 						<td style="font-weight: bold;">Event</td>

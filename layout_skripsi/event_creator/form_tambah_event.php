@@ -18,10 +18,18 @@ $id_event = $huruf_event . sprintf("%03s", $urutan_event);
 //get data kategori event
 $query_kategori_event = mysqli_query($conn, "SELECT * FROM `kategori_event`");
 
+//get data kategori peserta
+$query_kategori_peserta = mysqli_query($conn, "SELECT * FROM `kategori_peserta`");
+
 ?>
 <script type="text/javascript">
    $(document).ready(function(){
     $("#tanggal").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+   });
+   $(document).ready(function(){
+    $("#tanggal_pendanaan").datepicker({
         dateFormat: "yy-mm-dd"
     });
    });
@@ -48,18 +56,52 @@ $query_kategori_event = mysqli_query($conn, "SELECT * FROM `kategori_event`");
 						<td><input type="text" class="form-control" name="nama_event" /> </td>
 					</tr>
 					<tr>
+						<td style="font-weight: bold;">Deskripsi Event</td>
+						<td><textarea class="form-control" name="deskripsi_event"> </textarea> </td>
+					</tr>
+					<tr>
 						<td style="font-weight: bold;">TANGGAL</td>
-						<td><input type="text" name="tanggal" id="tanggal"/> </td>
+						<td><input type="text" class="form-control" name="tanggal" id="tanggal"/> </td>
+					</tr>
+					<tr>
+						<td style="font-weight: bold;">TANGGAL PENDANAAN TERAKHIR</td>
+						<td><input type="text" class="form-control" name="tanggal_batas_pendanaan" id="tanggal_pendanaan"/> </td>
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">Lokasi Event</td>
 						<td><textarea class="form-control" name="lokasi_event"> </textarea> </td>
 					</tr>
 					<tr>
+						<td style="font-weight: bold;">Kategori Peserta Event</td>
+						<td><select name="id_kategori_peserta" class="form-control">
+   							<?php
+							   while ($data_kategori_peserta = mysqli_fetch_array($query_kategori_peserta)){
+							?>
+								<option value="<?php echo $data_kategori_peserta['id_kategori_peserta'];?>"><?php echo $data_kategori_peserta['kategori_peserta'];?></option>
+							   <?php } ?>
+							</select>
+							<label style="float:right;"><a href="detail_kategori_peserta.php">Lihat detail kategori peserta</a></label>
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: bold;">Jumlah Peserta</td>
+						<td><input type="number" class="form-control" name="jumlah_peserta" id="jumlah_peserta" onkeyup="jumpeFunction()"/> 
+							<label style="float:right;"><span id="jumpe"></span> Peserta</label></td>
+					</tr>
+					<tr>
+						<td style="font-weight: bold;">Feedback Untuk Sponsorship</td>
+						<td><textarea class="form-control" name="feedback"> </textarea> </td>
+					</tr>
+					<tr>
+						<td style="font-weight: bold;">Anggaran Dana</td>
+						<td><input type="number" class="form-control" name="dana_anggaran" id="dana" onkeyup="myFunction()"/> 
+						<label style="float:right;">Rp <span id="uang"></span> </label></td>
+					</tr>
+					<tr>
 						<td style="font-weight: bold;">Status dana Event</td>
 						<td><select name="status_terdanai" class="form-control">
-								<option value="terdanai">Terdanai</option>
-								<option value="belum_terdanai">Belum Terdanai</option>
+								<option value="BELUM TERDANAI">Belum Terdanai</option>
+								<option value="SUDAH TERDANAI">Sudah Terdanai</option>
 							</select>
 						</td>
 					</tr>
@@ -76,7 +118,8 @@ $query_kategori_event = mysqli_query($conn, "SELECT * FROM `kategori_event`");
 					</tr>
 					<tr>
 						<td style="font-weight: bold;">Proposal</td>
-						<td><input type="file" name="proposal" accept="application/pdf" /> </td>
+						<td><input type="file" name="proposal" accept="application/pdf" /> 
+						</td>
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align: right; position: right;"><input type="reset" class="w3-button w3-border w3-medium w3-red" value="Batal"/>

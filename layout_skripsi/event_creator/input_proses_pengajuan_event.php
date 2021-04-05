@@ -4,10 +4,11 @@ include("koneksi.php");
 
 $id_pengajuan_event = $_POST['id_pengajuan_event'];
 $id_sponsorship= $_POST['id_sponsorship'];
+$status = $_POST['status'];
 $id_event = $_POST['id_event'];
 
 
-$sql = "INSERT INTO `pengajuan_event`(`id_pengajuan_event`, `id_event`, `id_sponsorship`) VALUES ('{$id_pengajuan_event}','{$id_event}','{$id_sponsorship}')" ;
+$sql = "INSERT INTO `pengajuan_event`(`id_pengajuan_event`, `id_event`, `id_sponsorship`, `status`) VALUES ('{$id_pengajuan_event}','{$id_event}','{$id_sponsorship}','{$status}')" ;
 //echo "$sql";
 
 $eksekusi = mysqli_query($conn,$sql);
