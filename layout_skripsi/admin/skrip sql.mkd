@@ -25,3 +25,39 @@ SELECT sponsorship.id_sponsorship, user.id_user, user.username, sponsorship.nama
 sponsorship.no_telp, sponsorship.dana_maksimal, sponsorship.deskripsi_sponsorship
 FROM sponsorship LEFT JOIN user
 ON sponsorship.id_user = user.id_user
+
+# laporan sponsorship yang paling sering jadi sponsors termasuk dana
+
+SELECT pengajuan_event.id_pengajuan_event, pengajuan_event.id_sponsorship, sponsorship.nama_sponsorship, pengajuan_event.id_event, event.nama_event, pengajuan_event.dana_event 
+FROM pengajuan_event 
+JOIN event ON pengajuan_event.id_event = event.id_event
+JOIN sponsorship ON pengajuan_event.id_sponsorship = sponsorship.id_sponsorship
+order by id_sponsorship asc
+
+# laporan sponsorship per kategori event
+
+SELECT pengajuan_event.id_pengajuan_event, pengajuan_event.id_sponsorship, sponsorship.nama_sponsorship, pengajuan_event.id_event, event.nama_event, 
+kategori_event.kategori_event, pengajuan_event.dana_event 
+FROM pengajuan_event 
+JOIN event ON pengajuan_event.id_event = event.id_event
+JOIN sponsorship ON pengajuan_event.id_sponsorship = sponsorship.id_sponsorship
+JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event
+order by event.id_kategori_event asc
+
+# laporan sponsorship yang paling besar dana nya
+
+SELECT pengajuan_event.id_pengajuan_event, pengajuan_event.id_sponsorship, sponsorship.nama_sponsorship, pengajuan_event.id_event, event.nama_event, 
+kategori_event.kategori_event, pengajuan_event.dana_event 
+FROM pengajuan_event 
+JOIN event ON pengajuan_event.id_event = event.id_event
+JOIN sponsorship ON pengajuan_event.id_sponsorship = sponsorship.id_sponsorship
+JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event
+order by pengajuan_event.dana_event desc
+
+# laporan event yang tersponsori periode
+
+SELECT pengajuan_event.id_event, event.nama_event, event.tanggal, pengajuan_event.id_sponsorship, sponsorship.nama_sponsorship, pengajuan_event.dana_event, pengajuan_event.status
+FROM event
+JOIN pengajuan_event ON event.id_event = pengajuan_event.id_event
+JOIN sponsorship ON pengajuan_event.id_sponsorship = sponsorship.id_sponsorship
+WHERE (event.tanggal BETWEEN '2020-11-03' AND '2021-04-04') AND pengajuan_event.status ='DI TERIMA'

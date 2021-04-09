@@ -7,8 +7,9 @@ include_once('koneksi.php');
 	$id_sponsor="";
 	$nama_sponsor = "";
     $no_telp="";
-    $dana="";
+    $id_kategori_sponsorship="";
 	$alamat="";
+	$judul="";
     $deskripsi_sponsor="";
 	$password = "";
 	$password_konfirm = "";
@@ -24,7 +25,8 @@ include_once('koneksi.php');
 	    $id_sponsor=$_POST['id_sponsor'];
 		$nama_sponsor = trim($_POST['nama_sponsor']);
 		$no_telp = trim($_POST['no_telp']);
-        $dana = trim($_POST['dana']);
+		$judul = trim($_POST['judul']);
+        $id_kategori_sponsorship = trim($_POST['id_kategori_sponsorship']);
         $alamat=trim($_POST['alamat']);
         $deskripsi_sponsor=trim($_POST['deskripsi_sponsor']);;
 		$password = trim($_POST['password']);
@@ -120,23 +122,24 @@ include_once('koneksi.php');
             $eksekusi_user = mysqli_query($conn,$sql_user);
 
             //sql tabel event creator
-            $sql_sponsor = "INSERT INTO `sponsorship` (`id_sponsorship`, `id_user`, `nama_sponsorship`, `alamat`, `no_telp`, `dana_maksimal`, `deskripsi_sponsorship`) VALUES ('{$id_sponsor}', '{$id_user}', '{$nama_sponsor}', '{$alamat}', '{$no_telp}', '{$dana}', '{$deskripsi_sponsor}')";
+            $sql_sponsor = "INSERT INTO `sponsorship` (`id_sponsorship`, `id_user`, `id_kategori_sponsorship`, `judul_sponsorship`, `nama_sponsorship`, `alamat`, `no_telp`, `deskripsi_sponsorship`) VALUES ('{$id_sponsor}', '{$id_user}', '{$id_kategori_sponsorship}', '{$judul}', '{$nama_sponsor}', '{$alamat}', '{$no_telp}', '{$deskripsi_sponsor}')";
             $eksekusi_sponsor = mysqli_query($conn,$sql_sponsor);
 
             if($eksekusi_user and $eksekusi_sponsor){
                 echo ' <script type="text/javascript">
-                alert("Anda Berhasil Mendaftar Sebagai Event Creator");
-                window.location.replace("../kategori/read_user.php") </script>';
+                alert("Anda Berhasil Mendaftar Sebagai Sponsorship");
+                window.location.replace("signup_sponsorship.php") </script>';
             //	header("Location: read_user.php") ;
             }else{
                 echo ' <script type="text/javascript">
-                alert("Anda Gagal Mendaftar Sebagai Event Creator");
-                window.location.replace("../kategori/read_user.php") </script>';
+                alert("Anda Gagal Mendaftar Sebagai Sponsorship");
+                window.location.replace("signup_sponsorship.php") </script>';
                 //echo "gagal menyimpan  ". mysqli_error($conn);
             /**    echo ' <script type="text/javascript">
                 alert("Anda Gagal Mendaftar Sebagai Event Creator\nNo Error : '. mysqli_errno($conn). '\nPesan Error : '.mysqli_error($conn).'");
                 window.location.replace("../kategori/read_user.php") </script>'; 
              */   
+               // echo "gagal mendaftar". mysql_error();
             }
 
 		}

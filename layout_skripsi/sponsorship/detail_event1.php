@@ -27,7 +27,7 @@ event.jumlah_peserta, event.deskripsi_event, event.feedback,
 DATE_FORMAT(event.tanggal_batas_pendanaan, '%d %M %Y') as batas_pendanaan, DATEDIFF(tanggal_batas_pendanaan, current_date()) as selisih_hari
 FROM event
 JOIN event_creator ON event.id_event_creator = event_creator.id_event_creator
-JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event 
+JOIN kategori_event ON event.id_kategori_event = kategori_event.id_kategori_event
 JOIN kategori_peserta ON event.id_kategori_peserta = kategori_peserta.id_kategori_peserta
 JOIN user ON event_creator.id_user = user.id_user WHERE `id_event`='{$id_event}'" ;
 
@@ -83,6 +83,16 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
                             <td><?php echo $row['lokasi_event'] ?></td>
 
                         </tr>
+												<tr>
+                            <th>No Telephone</th>
+                            <td><?php echo $row['no_telp'] ?></td>
+
+                        </tr>
+												<tr>
+                            <th>Email</th>
+                            <td><?php echo $row['email'] ?></td>
+
+                        </tr>
                          <tr>
                             <th>Kategori Peserta</th>
                             <td><?php echo $row['kategori_peserta'] ?></td>
@@ -101,7 +111,10 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
                         <tr>
                             <th>Tanggal Terakhir Pendanaan Event</th>
                             <td><?php echo $row['batas_pendanaan'] ?>
-                            <label> ( <?php echo$row['selisih_hari']  ?> hari lagi )</label></td>
+                            <?php if ($row['selisih_hari'] >= 0){ ?>
+                            <label> ( <?php echo$row['selisih_hari']  ?> hari lagi )</label>
+                            <?php } ?>
+                          </td>
 
                         </tr>
                         <tr>
@@ -125,6 +138,7 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
                             <td><?php echo $row['tanggal_berakhir'] ?></td>
 
                         </tr>
+
                           </tbody>
 
 
@@ -161,6 +175,7 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
                   <th class="w3-center">NAMA SPONSORSHIP</th>
                   <th class="w3-center">STATUS</th>
                   <th class="w3-center">Dana Sumbangan</th>
+                  <th class="w3-center">Besaran Sumbangan</th>
                 </tr>
 
                     <?php
@@ -170,11 +185,11 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
 
                 <tr>
                   <td class="w3-center"><?php echo $no ?></td>
-                  <td class="w3-center"><a href="detail_event.php?id_event=<?php echo $row3['id_event'] ?>"><?php echo $row3['nama_event'] ?></a></td>
+                  <td class="w3-center"><a href="detail_event1.php?id_event=<?php echo $row3['id_event'] ?>"><?php echo $row3['nama_event'] ?></a></td>
                   <td class="w3-center"><a href="detail_sponsorship.php?id_sponsorship=<?php echo $row3['id_sponsorship'] ?>"><?php echo $row3['nama_sponsorship'] ?></a></td>
                   <td class="w3-center"><?php echo $row3['status'] ?></td>
-                  <td class="w3-center"><?php $presentase_sumbangan = $row3['dana_event'] / $row3['dana_anggaran'] * 100;
-                                          echo $presentase_sumbangan ?> %</td>
+                  <td class="w3-center"><?php $presentase_sumbangan = $row3['dana_event'] / $row3['dana_anggaran'] * 100; echo $presentase_sumbangan ?> %</td>
+                  <td class="w3-center"> Rp <?php echo $hasil_dana_event = number_format($row3['dana_event'],0,',','.'); ?></td>
                 </tr>
 
                   <?php
@@ -220,14 +235,6 @@ $eksekusi_event_didanai = mysqli_query($conn, $sql_event_didanai);
   </div>
 
   <div class="col-2 col-s-3 menu " style="text-align:center; font-weight: bold;">
-    <div class="well">
-     <p>No Telpon</p><br/>
-     <p><?php echo $row['no_telp'] ?></p>
-    </div>
-    <div class="well">
-     <p>Email</p><br/>
-     <p><?php echo $row['email'] ?></p>
-    </div>
     <div class="well">
      <p>Proposal</p><br/>
      <p><a href="../event_creator/proposal/<?php echo $row['proposal'] ?>" class="btn btn-info"/>Baca Proposal</a></td></p>

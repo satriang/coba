@@ -116,12 +116,12 @@ include_once('koneksi.php');
             if($eksekusi_user and $eksekusi_event_creator){
                 echo ' <script type="text/javascript">
                 alert("Anda Berhasil Mendaftar Sebagai Event Creator");
-                window.location.replace("../kategori/read_user.php") </script>';
+                window.location.replace("signup_event_creator.php") </script>';
             //	header("Location: read_user.php") ;
             }else{
                 echo ' <script type="text/javascript">
                 alert("Anda Gagal Mendaftar Sebagai Event Creator");
-                window.location.replace("../kategori/read_user.php") </script>';
+                window.location.replace("signup_event_creator.php") </script>';
                 //echo "gagal menyimpan  ". mysqli_error($conn);
             /**    echo ' <script type="text/javascript">
                 alert("Anda Gagal Mendaftar Sebagai Event Creator\nNo Error : '. mysqli_errno($conn). '\nPesan Error : '.mysqli_error($conn).'");

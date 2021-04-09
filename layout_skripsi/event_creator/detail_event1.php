@@ -131,8 +131,9 @@ $jumlah_data = $row_jumlah_foto['jumlah_foto_event'];
                         <tr>
                             <th>Tanggal Terakhir Pendanaan Event</th>
                             <td><?php echo $row['batas_pendanaan'] ?>
+                            <?php if ($row['selisih_hari'] >= 0){ ?>
                             <label> ( <?php echo$row['selisih_hari']  ?> hari lagi )</label></td>
-
+                            <?php } ?>
                         </tr>
                         <tr>
                             <th>Status Acara Event </th>
@@ -180,6 +181,7 @@ $jumlah_data = $row_jumlah_foto['jumlah_foto_event'];
                   <th class="w3-center">NAMA SPONSORSHIP</th> 
                   <th class="w3-center">STATUS</th>
                   <th class="w3-center">Dana Sumbangan</th>
+                  <th class="w3-center">Besaran Sumbangan</th>
                 </tr>
 
                     <?php
@@ -193,6 +195,7 @@ $jumlah_data = $row_jumlah_foto['jumlah_foto_event'];
                   <td class="w3-center"><a href="detail_sponsorship.php?id_sponsorship=<?php echo $row3['id_sponsorship'] ?>"><?php echo $row3['nama_sponsorship'] ?></a></td>
                   <td class="w3-center"><?php echo $row3['status'] ?></td>
                   <td class="w3-center"><?php $presentase = $row3['dana_event'] / $row3['dana_anggaran'] * 100; echo $presentase; ?>%</td>
+                  <td class="w3-center"> Rp <?php echo $hasil_dana_event = number_format($row3['dana_event'],0,',','.'); ?></td>
                 </tr>
 
                   <?php

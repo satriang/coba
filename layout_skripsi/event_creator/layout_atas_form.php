@@ -215,8 +215,27 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="read_event.php">Event</a></li>
+      <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Event <?php echo $hasil['nama_eo'] ?>
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="read_event.php">Event <?php echo $hasil['nama_eo'] ?></a></li>
+            <li><a href="read_event_diajukan.php">Event Diajukan</a></li>
+            <li><a href="read_event_diterima.php">Event Di Terima</a></li>
+            <li><a href="read_event_ditolak.php">Event Di Tolak</a></li>
+          </ul>
+        </li>
         <li><a href="read_sponsorship.php">Sponsorship</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Rekapitulasi
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="read_sponsorship_sering.php">Sponsorship Paling Sering Mendanai</a></li>
+            <li><a href="read_sponsorship_berdasarkan_dana.php">Sponsorship Berdasarkan Dana</a></li>
+            <li><a href="form_sponsorship_berdasarkan_kategori.php">Sponsorship Berdasarkan Kategori Event</a></li>
+            <li><a href="form_event_perperiode.php">Event Tersponsori Berdasarkan Tanggal</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <li><a href="read_user_umum.php"><span class="glyphicon glyphicon-user"></span> <?php echo $hasil['nama_eo'] ?></a></li>

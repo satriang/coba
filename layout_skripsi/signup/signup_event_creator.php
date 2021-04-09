@@ -22,6 +22,18 @@ $id_user = $huruf_user . sprintf("%03s", $urutan_user);
 $huruf_event_creator = "ECT";
 $id_event_creator = $huruf_event_creator . sprintf("%03s", $urutan_event_creator);
 ?>
+<div class="container-fluid">
+<div class="row" style="margin-top:1em; margin-bottom:10em;">
+  <div class="col-2 col-s-3 menu " style="text-align:center; font-weight: bold;">
+    <ul>
+      <li><a href="signup_sponsorship.php" style="color:#000000; font-weight: bold;">SPONSORSHIP</a></li>
+      <li><a href="signup_event_creator.php" style="color:#000000; font-weight: bold;">EVENT CREATOR</a></li>
+    </ul>
+  </div>
+
+  <div class="col-3 col-s-9">
+
+  </div>
 <div class="col-5 col-s-12">
   <h1>Silahkan Daftar Sebagai Event Creator</h1>
   <form action="proses_daftar_event_creator.php" method="POST">

@@ -39,6 +39,16 @@ $row=mysqli_fetch_assoc($eksekusi_id);
                             <td><?php echo $row['nama_kategori_sponsorship'] ?></td>
 
                         </tr>
+                        <tr>
+                            <th>No Telephone</th>
+                            <td><?php echo $row['no_telp'] ?></td>
+
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><?php echo $row['email'] ?></td>
+
+                        </tr>
                           </tbody>
 
 
@@ -61,14 +71,6 @@ $row=mysqli_fetch_assoc($eksekusi_id);
   </div>
 
   <div class="col-2 col-s-3 menu " style="text-align:center; font-weight: bold;">
-    <div class="well">
-     <p>No Telpon</p><br/>
-     <p><?php echo $row['no_telp'] ?></p>
-    </div>
-    <div class="well">
-     <p>Email</p><br/>
-     <p><?php echo $row['email'] ?></p>
-    </div>
     <div class="well">
      <p>Ajukan Proposal</p><br/>
      <a href="form_pengajuan_event.php?id_sponsorship=<?php echo $row['id_sponsorship'] ?>"  class="w3-button w3-border w3-small w3-purple">Ajukan</a>

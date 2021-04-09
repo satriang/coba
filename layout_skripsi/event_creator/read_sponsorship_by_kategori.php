@@ -11,7 +11,7 @@ $halaman = @$_GET['halaman'];
   else{ 
     $posisi  = ($halaman-1) * $batas; 
   }
-
+$id_kategori_sponsorship = $_POST['id_kategori_sponsorship']; 
 $sql = "SELECT sponsorship.id_sponsorship, user.id_user, user.email, 
         sponsorship.nama_sponsorship, sponsorship.alamat, 
         sponsorship.no_telp, sponsorship.deskripsi_sponsorship, sponsorship.judul_sponsorship, 
@@ -19,7 +19,7 @@ $sql = "SELECT sponsorship.id_sponsorship, user.id_user, user.email,
         FROM sponsorship 
         LEFT JOIN user ON sponsorship.id_user = user.id_user 
         JOIN kategori_sponsorship ON sponsorship.id_kategori_sponsorship = kategori_sponsorship.id_kategori_sponsorship 
-        LIMIT $posisi,$batas";
+        WHERE kategori_sponsorship.id_kategori_sponsorship = '{$id_kategori_sponsorship}'";
 
 $eksekusi = mysqli_query($conn, $sql);
 ?>
@@ -37,7 +37,7 @@ $eksekusi = mysqli_query($conn, $sql);
 
                        <?php
                               $no = $posisi+1;
-                              while ($row=mysqli_fetch_array($eksekusi)) {
+                              while ($row=mysqli_fetch_assoc($eksekusi)) {
                             ?>
                       <tr>
                         <th style="width:25%"rowspan="4"><h3><?php echo $row['nama_sponsorship'] ?></h3></th>
@@ -59,27 +59,6 @@ $eksekusi = mysqli_query($conn, $sql);
                             ?>
                      </table>
             </div>
-            <?php
-        // Langkah 3: Hitung total data dan halaman serta link 1,2,3 
-                                $sql2 = "SELECT sponsorship.id_sponsorship, user.id_user, user.email, sponsorship.nama_sponsorship, sponsorship.alamat, 
-                                sponsorship.no_telp, sponsorship.deskripsi_sponsorship
-                                FROM sponsorship LEFT JOIN user
-                                ON sponsorship.id_user = user.id_user ";
-                                $eksekusi2 = mysqli_query($conn, $sql2);
-                                $jmldata    = mysqli_num_rows($eksekusi2);
-                                $jmlhalaman = ceil($jmldata/$batas);
-            ?>
-                      <br/> Halaman :
-                            <?php
-                                for($i=1;$i<=$jmlhalaman;$i++)
-                                if ($i != $halaman){
-                                  echo " <a href=\"read_sponsorship.php?halaman=$i\">$i</a> | ";
-                                }
-                                else{ 
-                                  echo " <b>$i</b> | "; 
-                                }
-                              echo "<p>Total Sponsorship : <b>$jmldata</b> sponsorship</p>";
-                            ?>
      </div>
   </div>
 

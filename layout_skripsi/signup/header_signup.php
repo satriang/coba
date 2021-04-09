@@ -232,15 +232,4 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   </div>
 </nav>
 
-<div class="container-fluid">
-<div class="row" style="margin-top:1em; margin-bottom:10em;">
-  <div class="col-2 col-s-3 menu " style="text-align:center; font-weight: bold;">
-    <ul>
-      <li><a href="signup_sponsorship.php" style="color:#000000; font-weight: bold;">SPONSORSHIP</a></li>
-      <li><a href="signup_event_creator.php" style="color:#000000; font-weight: bold;">EVENT CREATOR</a></li>
-    </ul>
-  </div>
 
-  <div class="col-3 col-s-9">
-
-  </div>
